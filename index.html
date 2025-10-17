@@ -183,12 +183,56 @@
         
         /* Mobile menu */
         .mobile-menu {
-            transform: translateX(-100%);
+            transform: translateX(100%);
             transition: transform 0.3s ease;
+            z-index: 99;
         }
-        
+
         .mobile-menu.active {
             transform: translateX(0);
+        }
+
+        /* Right-aligned content within mobile menu */
+        .mobile-menu .p-6 {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            text-align: right;
+            height: 100%;
+            justify-content: flex-start;
+            padding-top: 2rem;
+        }
+
+        .mobile-menu .flex-col {
+            align-items: flex-end;
+            width: 100%;
+        }
+
+        .mobile-menu .mb-8 {
+            align-self: flex-end;
+            margin-bottom: 2rem;
+        }
+
+        /* Ensure proper spacing for navigation links in top-aligned menu */
+        .mobile-menu .space-y-6 > * + * {
+            margin-top: 1.5rem;
+        }
+
+        /* Add top margin to create space from top of menu */
+        .mobile-menu .flex-col {
+            margin-top: 1rem;
+        }
+
+        /* Maintain hover effects for right-aligned links */
+        .mobile-menu a {
+            padding: 0.5rem 1rem;
+            border-radius: 0.375rem;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-menu a:hover {
+            background-color: rgba(210, 180, 140, 0.1);
+            transform: translateX(-0.25rem);
         }
         
         /* Lightbox */
@@ -393,7 +437,7 @@
     <header id="header" class="bg-white/80 backdrop-blur-sm shadow-md fixed w-full top-0 z-50 transition-all duration-300">
         <nav class="container mx-auto px-4 md:px-20 py-4 flex justify-between items-center">
             <!-- Logo -->
-            <a href="./" class="text-2xl md:text-3xl font-serif font-bold text-dark hover:text-accent transition-colors">
+            <a href="/" class="text-2xl md:text-3xl font-serif font-bold text-dark hover:text-accent transition-colors">
                 Two Birds One Stone Q
             </a>
             
@@ -412,24 +456,24 @@
                 </svg>
             </button>
         </nav>
-        
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="mobile-menu fixed top-0 left-0 w-64 h-full bg-white shadow-2xl md:hidden z-50">
-            <div class="p-6">
-                <button onclick="toggleMobileMenu()" class="mb-8 text-dark focus:outline-none">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-                    </svg>
-                </button>
-                <div class="flex flex-col space-y-6">
-                    <a href="/" class="text-dark hover:text-accent transition-colors font-medium text-lg">Home</a>
-                    <a href="menu.html" class="text-dark hover:text-accent transition-colors font-medium text-lg">Menu</a>
-                    <a href="gallery.html" class="text-dark hover:text-accent transition-colors font-medium text-lg">Gallery</a>
-                    <a href="#contact" class="text-dark hover:text-accent transition-colors font-medium text-lg">Contact</a>
-                </div>
+    </header>
+    
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="mobile-menu fixed top-0 right-0 w-64 h-full bg-white shadow-2xl md:hidden z-60">
+        <div class="p-6">
+            <button onclick="toggleMobileMenu()" class="mb-8 text-dark focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </button>
+            <div class="flex flex-col space-y-6">
+                <a href="/" class="text-dark hover:text-accent transition-colors font-medium text-lg">Home</a>
+                <a href="menu.html" class="text-dark hover:text-accent transition-colors font-medium text-lg">Menu</a>
+                <a href="gallery.html" class="text-dark hover:text-accent transition-colors font-medium text-lg">Gallery</a>
+                <a href="#contact" class="text-dark hover:text-accent transition-colors font-medium text-lg">Contact</a>
             </div>
         </div>
-    </header>
+    </div>
     
     <!-- Main Content -->
     <main id="app" class="pt-16">
@@ -489,10 +533,8 @@
     <!-- Hero Gallery Lightbox -->
     <div id="hero-lightbox" class="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center z-50" onclick="closeHeroLightbox()" style="display: none;">
         <button id="hero-lightbox-close" class="absolute top-4 right-4 text-white text-4xl font-bold hover:text-accent transition-colors z-10" aria-label="Close lightbox">&times;</button>
-        <button id="hero-lightbox-prev" class="absolute left-4 text-white text-6xl font-bold hover:text-accent transition-colors z-10" aria-label="Previous image">&#8249;</button>
-        <button id="hero-lightbox-next" class="absolute right-4 text-white text-6xl font-bold hover:text-accent transition-colors z-10" aria-label="Next image">&#8250;</button>
         <div class="relative max-w-full max-h-full flex items-center justify-center" onclick="event.stopPropagation()">
-            <img id="hero-lightbox-img" src="" alt="Gallery image" class="max-w-[65%] max-h-full object-contain block">
+            <img id="hero-lightbox-img" src="" alt="Gallery image" class="max-w-[65%] max-h-full object-contain block rounded-lg">
         </div>
     </div>
 
@@ -532,8 +574,6 @@
 
             // Hero Gallery Lightbox functionality
             document.getElementById('hero-lightbox-close').addEventListener('click', closeHeroLightbox);
-            document.getElementById('hero-lightbox-prev').addEventListener('click', () => navigateHeroLightbox(-1));
-            document.getElementById('hero-lightbox-next').addEventListener('click', () => navigateHeroLightbox(1));
 
             // Keyboard navigation for lightboxes
             document.addEventListener('keydown', (e) => {
@@ -546,8 +586,6 @@
                 }
                 if (heroLightbox.style.display === 'flex') {
                     if (e.key === 'Escape') closeHeroLightbox();
-                    if (e.key === 'ArrowLeft') navigateHeroLightbox(-1);
-                    if (e.key === 'ArrowRight') navigateHeroLightbox(1);
                 }
             });
 
@@ -555,7 +593,7 @@
             document.addEventListener('click', (e) => {
                 const mobileMenu = document.getElementById('mobile-menu');
                 const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-                if (!mobileMenu.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
+                if (mobileMenu.classList.contains('active') && !mobileMenu.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
                     mobileMenu.classList.remove('active');
                 }
             });
@@ -672,20 +710,6 @@
             }
         }
 
-        function navigateHeroLightbox(direction) {
-            if (!heroGalleryData) return;
-
-            currentHeroLightboxIndex += direction;
-
-            if (currentHeroLightboxIndex < 0) {
-                currentHeroLightboxIndex = heroGalleryData.length - 1;
-            } else if (currentHeroLightboxIndex >= heroGalleryData.length) {
-                currentHeroLightboxIndex = 0;
-            }
-
-            openHeroLightbox(currentHeroLightboxIndex);
-        }
-
         // Handle browser back button when lightbox is open
         window.addEventListener('popstate', function(event) {
             const lightbox = document.getElementById('hero-lightbox');
@@ -727,7 +751,16 @@
             const mobileMenu = document.getElementById('mobile-menu');
             mobileMenu.classList.toggle('active');
         }
-        
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            const mobileMenu = document.getElementById('mobile-menu');
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            if (mobileMenu.style.transform === 'translateX(0px)' && !mobileMenu.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
+                mobileMenu.style.transform = 'translateX(-100%)';
+            }
+        });
+
         // Route Rendering
         function renderRoute(path) {
             currentRoute = path;
@@ -908,7 +941,7 @@
 
                         <!-- Gallery CTA -->
                         <div class="text-center mt-12 fade-in" style="animation-delay: 0.6s;">
-                            <a href="gallery.html" class="bg-dark hover:bg-accent-dark text-white font-semibold px-8 py-4 rounded-full text-lg transition-all duration-300 transform hover:scale-105 btn-shine inline-block">
+                            <a href="/gallery.html" class="bg-dark hover:bg-accent-dark text-white font-semibold px-8 py-4 rounded-full text-lg transition-all duration-300 transform hover:scale-105 btn-shine inline-block">
                                 Explore Our Full Gallery
                             </a>
                             <p class="text-gray-600 mt-4">Discover more of our cafe atmosphere and delicious dishes</p>
@@ -1376,7 +1409,4 @@
         }
     </script>
 </body>
-
 </html>
-
-

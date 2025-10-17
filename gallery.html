@@ -123,6 +123,59 @@
         }
         .lightbox.active { display: flex; opacity: 1; }
         .lightbox img { max-width: 65%; max-height: 90vh; object-fit: contain; }
+
+        /* Mobile menu */
+        .mobile-menu {
+            transform: translateX(100%);
+            transition: transform 0.3s ease;
+            z-index: 60;
+            background: white;
+            opacity: 1;
+        }
+
+        .mobile-menu.active {
+            transform: translateX(0);
+        }
+
+        /* Right-aligned content within mobile menu */
+        .mobile-menu .p-6 {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            text-align: right;
+            height: 100%;
+            justify-content: flex-start;
+            padding-top: 2rem;
+            background: white;
+            opacity: 1;
+        }
+
+        .mobile-menu .flex-col {
+            align-items: flex-end;
+            width: 100%;
+        }
+
+        .mobile-menu .mb-8 {
+            align-self: flex-end;
+            margin-bottom: 2rem;
+        }
+
+        /* Ensure proper spacing for navigation links */
+        .mobile-menu .space-y-6 > * + * {
+            margin-top: 1.5rem;
+        }
+
+        /* Maintain hover effects for right-aligned links */
+        .mobile-menu a {
+            padding: 0.5rem 1rem;
+            border-radius: 0.375rem;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-menu a:hover {
+            background-color: rgba(210, 180, 140, 0.1);
+            transform: translateX(-0.25rem);
+        }
     </style>
 </head>
 <body class="bg-secondary text-dark">
@@ -130,20 +183,39 @@
     <!-- Header -->
     <header id="header" class="bg-white/80 backdrop-blur-sm shadow-md fixed w-full top-0 z-50">
         <nav class="container mx-auto px-4 md:px-20 py-4 flex justify-between items-center">
-            <a href="./" class="text-2xl md:text-3xl font-serif font-bold text-dark hover:text-accent transition-colors">
+            <a href="/" class="text-2xl md:text-3xl font-serif font-bold text-dark hover:text-accent transition-colors">
                 Two Birds One Stone Q
             </a>
             <div class="hidden md:flex space-x-8">
                 <a href="./" class="nav-link text-dark hover:text-accent transition-colors font-medium">Home</a>
                 <a href="menu.html" class="nav-link text-dark hover:text-accent transition-colors font-medium">Menu</a>
                 <a href="gallery.html" class="nav-link text-dark hover:text-accent transition-colors font-medium active">Gallery</a>
-                <a href="./#contact" onclick="scrollToContact(event)" class="nav-link text-dark hover:text-accent transition-colors font-medium">Contact</a>
+                <a href="./" onclick="scrollToContact(event)" class="nav-link text-dark hover:text-accent transition-colors font-medium">Contact</a>
             </div>
-            <button id="mobile-menu-btn" class="md:hidden text-dark focus:outline-none">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 M4 6h16M4 12h16M4 18h16"></path></svg>
+            <button id="mobile-menu-btn" class="md:hidden text-dark focus:outline-none" onclick="toggleMobileMenu()">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
             </button>
         </nav>
     </header>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="mobile-menu fixed top-0 right-0 w-64 h-full bg-white shadow-2xl md:hidden z-[60] transform translate-x-full transition-transform duration-300" style="background: white !important; opacity: 1 !important;">
+        <div class="p-6">
+            <button onclick="toggleMobileMenu()" class="mb-8 text-dark focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </button>
+            <div class="flex flex-col space-y-6">
+                <a href="./" onclick="navigate(event, './')" class="text-dark hover:text-accent transition-colors font-medium text-lg">Home</a>
+                <a href="menu.html" onclick="navigate(event, 'menu.html')" class="text-dark hover:text-accent transition-colors font-medium text-lg">Menu</a>
+                <a href="gallery.html" onclick="navigate(event, 'gallery.html')" class="text-dark hover:text-accent transition-colors font-medium text-lg active">Gallery</a>
+                <a href="./#contact" onclick="scrollToContact(event)" class="text-dark hover:text-accent transition-colors font-medium text-lg">Contact</a>
+            </div>
+        </div>
+    </div>
 
     <!-- Main Content -->
     <main class="pt-24">
@@ -219,6 +291,28 @@
     </div>
 
     <script>
+        // Mobile Menu Toggle
+        function toggleMobileMenu() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('active');
+        }
+
+        // Navigation
+        function navigate(event, path) {
+            if (event) {
+                event.preventDefault();
+            }
+            window.location.href = path;
+        }
+
+        // Scroll to contact (for footer link)
+        function scrollToContact(event) {
+            if (event) {
+                event.preventDefault();
+            }
+            window.location.href = '/';
+        }
+
     document.addEventListener('DOMContentLoaded', () => {
         const galleryGrid = document.getElementById('gallery-grid');
         const loadMoreBtn = document.getElementById('load-more-btn');
@@ -394,10 +488,16 @@
 
         // --- Initialize ---
         fetchGalleryData();
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            const mobileMenu = document.getElementById('mobile-menu');
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            if (mobileMenu && !mobileMenu.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
+                mobileMenu.classList.remove('active');
+            }
+        });
     });
     </script>
 </body>
-
 </html>
-
-

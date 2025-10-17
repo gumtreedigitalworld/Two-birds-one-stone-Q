@@ -1,0 +1,1185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Menu | Two Birds One Stone Q</title>
+    <meta name="description" content="Explore our delicious menu featuring hot drinks, all-day breakfast, fresh juices, smoothies, cocktails, and more at Two Birds One Stone Q.">
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Our Menu | Two Birds One Stone Q">
+    <meta property="og:description" content="Explore our delicious menu featuring hot drinks, all-day breakfast, fresh juices, smoothies, cocktails, and more at Two Birds One Stone Q.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://twobirdsonestonq.com/menu">
+    <meta property="og:image" content="https://lh3.googleusercontent.com/p/AF1QipP3k2O7kxZQqYJ9sZXxZxZxZxZ">
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Our Menu | Two Birds One Stone Q">
+    <meta name="twitter:description" content="Explore our delicious menu featuring hot drinks, all-day breakfast, fresh juices, smoothies, cocktails, and more at Two Birds One Stone Q.">
+    <meta name="twitter:image" content="https://lh3.googleusercontent.com/p/AF1QipP3k2O7kxZQqYJ9sZXxZxZxZxZ">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#FFFFFF',
+                        secondary: '#F9FAFB',
+                        dark: '#1F2937',
+                        accent: '#D2B48C',
+                        'accent-dark': '#856868',
+                    },
+                    fontFamily: {
+                        serif: ['Cormorant Garamond', 'serif'],
+                        sans: ['Montserrat', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="https://raw.githubusercontent.com/gumtreedigitalworld/Two-birds-one-stone-Q/refs/heads/main/favicon.ico">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Cormorant Garamond', serif;
+        }
+
+        /* Smooth scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #F9FAFB;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #D2B48C;
+            border-radius: 5px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #856868;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.6s ease-out forwards;
+        }
+
+        /* Hero gradient overlay */
+        .hero-overlay {
+            background: linear-gradient(135deg, rgba(31, 41, 55, 0.7) 0%, rgba(133, 104, 104, 0.5) 100%);
+        }
+
+        /* Card hover effects */
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Mobile menu */
+        .mobile-menu {
+            transform: translateX(-100%);
+            transition: transform 0.3s ease;
+        }
+
+        .mobile-menu.active {
+            transform: translateX(0);
+        }
+
+        /* Active nav link */
+        .nav-link {
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #D2B48C;
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 100%;
+        }
+
+        /* Button shine effect */
+        .btn-shine {
+            position: relative;
+        }
+
+        .btn-shine::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.5s;
+        }
+
+        .btn-shine:hover::before {
+            left: 100%;
+        }
+
+        /* Filter button styles */
+        .filter-btn {
+            transition: all 0.3s ease;
+        }
+
+        .filter-btn.active {
+            background: linear-gradient(135deg, #D2B48C 0%, #856868 100%);
+            transform: scale(1.05);
+        }
+
+        /* Menu item cards */
+        .menu-item-card {
+            transition: all 0.3s ease;
+            border: 1px solid #e5e7eb;
+        }
+
+        .menu-item-card:hover {
+            border-color: #D2B48C;
+            box-shadow: 0 10px 25px rgba(210, 180, 140, 0.15);
+        }
+
+        /* Price range styling */
+        .price-badge {
+            background: linear-gradient(135deg, #D2B48C 0%, #856868 100%);
+        }
+    </style>
+</head>
+<body class="bg-secondary text-dark">
+
+    <!-- Header -->
+    <header id="header" class="bg-white/80 backdrop-blur-sm shadow-md fixed w-full top-0 z-50 transition-all duration-300">
+        <nav class="container mx-auto px-4 md:px-20 py-4 flex justify-between items-center">
+            <!-- Logo -->
+            <a href="/" class="text-2xl md:text-3xl font-serif font-bold text-dark hover:text-accent transition-colors">
+                Two Birds One Stone Q
+            </a>
+
+            <!-- Desktop Navigation -->
+            <div class="hidden md:flex space-x-8">
+                <a href="/index.html" class="nav-link text-dark hover:text-accent transition-colors font-medium">Home</a>
+                <a href="/menu.html" class="nav-link text-dark hover:text-accent transition-colors font-medium active">Menu</a>
+                <a href="/gallery.html" class="nav-link text-dark hover:text-accent transition-colors font-medium">Gallery</a>
+                <a href="/index.html#contact" class="nav-link text-dark hover:text-accent transition-colors font-medium">Contact</a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-btn" class="md:hidden text-dark focus:outline-none" onclick="toggleMobileMenu()">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+        </nav>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="mobile-menu fixed top-0 left-0 w-64 h-full bg-white shadow-2xl md:hidden z-50 transform -translate-x-full transition-transform duration-300">
+            <div class="p-6">
+                <button onclick="toggleMobileMenu()" class="mb-8 text-dark focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+                <div class="flex flex-col space-y-6">
+                    <a href="/index.html" class="text-dark hover:text-accent transition-colors font-medium text-lg">Home</a>
+                    <a href="/menu.html" class="text-dark hover:text-accent transition-colors font-medium text-lg active">Menu</a>
+                    <a href="/gallery.html" class="text-dark hover:text-accent transition-colors font-medium text-lg">Gallery</a>
+                    <a href="/index.html#contact" class="text-dark hover:text-accent transition-colors font-medium text-lg">Contact</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="pt-16">
+        <!-- Menu Section -->
+        <section class="py-20 bg-secondary min-h-screen">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-12 fade-in">
+                    <h1 class="text-4xl md:text-6xl font-serif font-bold mb-4 text-dark">Our Complete Menu</h1>
+                    <div class="w-24 h-1 bg-accent mx-auto mb-6"></div>
+                    <p class="text-lg text-gray-600">Crafted with passion, served with love</p>
+                </div>
+
+                <!-- Search and Filters -->
+                <div class="max-w-4xl mx-auto mb-12 fade-in">
+                    <!-- Search Bar -->
+                    <div class="relative mb-6">
+                        <input
+                            type="text"
+                            id="menu-search"
+                            placeholder="Search menu items..."
+                            class="w-full px-6 py-4 rounded-full border-2 border-accent focus:outline-none focus:border-accent-dark transition-colors text-lg"
+                            oninput="handleSearch(event)"
+                            autocomplete="off"
+                        >
+                        <!-- Autocomplete Dropdown -->
+                        <div id="autocomplete-dropdown" class="absolute top-full left-0 right-0 mt-1 bg-white border border-gray-200 rounded-lg shadow-lg hidden z-10">
+                            <div id="autocomplete-suggestions" class="max-h-60 overflow-y-auto">
+                                <!-- Suggestions will be populated here -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Category Filters -->
+                    <div id="category-filters" class="flex flex-wrap justify-center gap-3 mb-6">
+                        <!-- Will be populated by JavaScript -->
+                    </div>
+
+                    <!-- Sub-Category Filters -->
+                    <div id="sub-category-filters" class="flex flex-wrap justify-center gap-3 mb-6 hidden">
+                        <!-- Will be populated by JavaScript for categories with sub-categories -->
+                    </div>
+
+                    <!-- Price Filter -->
+                    <div class="flex flex-wrap justify-center gap-3 mb-6">
+                        <button onclick="filterByPrice('all', event)" class="filter-btn px-4 py-2 rounded-full bg-white text-dark hover:bg-accent hover:text-white">
+                            All Prices
+                        </button>
+                        <button onclick="filterByPrice('under-5', event)" class="filter-btn px-4 py-2 rounded-full bg-white text-dark hover:bg-accent hover:text-white">
+                            Under $5
+                        </button>
+                        <button onclick="filterByPrice('5-10', event)" class="filter-btn px-4 py-2 rounded-full bg-white text-dark hover:bg-accent hover:text-white">
+                            $5 - $10
+                        </button>
+                        <button onclick="filterByPrice('10-15', event)" class="filter-btn px-4 py-2 rounded-full bg-white text-dark hover:bg-accent hover:text-white">
+                            $10 - $15
+                        </button>
+                        <button onclick="filterByPrice('15-20', event)" class="filter-btn px-4 py-2 rounded-full bg-white text-dark hover:bg-accent hover:text-white">
+                            $15 - $20
+                        </button>
+                        <button onclick="filterByPrice('20-25', event)" class="filter-btn px-4 py-2 rounded-full bg-white text-dark hover:bg-accent hover:text-white">
+                            $20 - $25
+                        </button>
+                        <button onclick="filterByPrice('over-25', event)" class="filter-btn px-4 py-2 rounded-full bg-white text-dark hover:bg-accent hover:text-white">
+                            Over $25
+                        </button>
+                    </div>
+                    
+
+
+                    <!-- Active Filters Bar -->
+                    <div id="active-filters" class="mt-6 mb-4 hidden">
+                        <div class="flex items-center justify-between mb-3">
+                            <h3 class="text-sm font-semibold text-gray-600">Active Filters:</h3>
+                            <button onclick="clearAllFilters()" class="text-xs text-accent hover:text-accent-dark underline">
+                                Clear All
+                            </button>
+                        </div>
+                        <div id="filter-chips" class="flex flex-wrap gap-2">
+                            <!-- Filter chips will be populated here -->
+                        </div>
+                    </div>
+
+                    <!-- Sorting Options -->
+                    <div class="flex justify-center items-center gap-3 mb-6">
+                        <span class="text-sm font-medium text-gray-600">Sort by:</span>
+                        <div class="relative inline-block">
+                            <button id="sort-dropdown-btn" onclick="toggleSortDropdown()" class="flex items-center justify-between w-48 px-4 py-2 rounded-full border-2 border-accent focus:outline-none focus:border-accent-dark transition-colors bg-white text-dark hover:bg-gray-50">
+                                <span id="sort-selected-text">Default</span>
+                                <svg id="sort-chevron" class="w-4 h-4 ml-2 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="transform: rotate(180deg)">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                                </svg>
+                            </button>
+                            <div id="sort-dropdown" class="hidden absolute bottom-full left-0 mb-1 w-48 bg-white border-2 border-accent rounded-lg shadow-lg" style="z-index: 1000;">
+                                <button onclick="selectSortOption('default')" class="w-full text-left px-4 py-2 hover:bg-accent hover:bg-opacity-10 transition-colors border-b border-gray-100 last:border-b-0">
+                                    Default
+                                </button>
+                                <button onclick="selectSortOption('price-low-high')" class="w-full text-left px-4 py-2 hover:bg-accent hover:bg-opacity-10 transition-colors border-b border-gray-100 last:border-b-0">
+                                    Price: Low to High
+                                </button>
+                                <button onclick="selectSortOption('price-high-low')" class="w-full text-left px-4 py-2 hover:bg-accent hover:bg-opacity-10 transition-colors border-b border-gray-100 last:border-b-0">
+                                    Price: High to Low
+                                </button>
+                                <button onclick="selectSortOption('name-a-z')" class="w-full text-left px-4 py-2 hover:bg-accent hover:bg-opacity-10 transition-colors border-b border-gray-100 last:border-b-0">
+                                    Name: A to Z
+                                </button>
+                                <button onclick="selectSortOption('name-z-a')" class="w-full text-left px-4 py-2 hover:bg-accent hover:bg-opacity-10 transition-colors border-b border-gray-100 last:border-b-0">
+                                    Name: Z to A
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Menu Items -->
+                <div id="menu-items" class="max-w-6xl mx-auto">
+                    <!-- Will be populated by JavaScript -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white pt-16 pb-8">
+        <div class="container mx-auto px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <!-- About Us -->
+                <div>
+                    <h3 class="text-lg font-serif font-bold mb-4 text-accent">About Us</h3>
+                    <p class="text-gray-400">Your local cafe by the water, serving quality food with a side of warmth and genuine connection.</p>
+                </div>
+                <!-- Quick Links -->
+                <div>
+                    <h3 class="text-lg font-serif font-bold mb-4 text-accent">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="/" class="hover:text-accent transition-colors">Home</a></li>
+                        <li><a href="/menu.html" class="hover:text-accent transition-colors">Menu</a></li>
+                        <li><a href="/gallery.html" class="hover:text-accent transition-colors">Gallery</a></li>
+                        <li><a href="#contact" class="hover:text-accent transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+                <!-- Contact Us -->
+                <div>
+                    <h3 class="text-lg font-serif font-bold mb-4 text-accent">Contact Us</h3>
+                    <p class="text-gray-400">Shop B10/14 Allandale Entrance<br>Mermaid Waters QLD 4218</p>
+                    <a href="https://maps.google.com/maps?q=Two%20Birds%20One%20Stone%20Q%20Shop%20B10/14%20Allandale%20Entrance%20Mermaid%20Waters%20QLD%204218%20Australia" target="_blank" rel="noopener noreferrer" class="text-accent hover:text-accent-dark transition-colors mt-2 inline-block">Get Directions</a>
+                </div>
+                <!-- Follow Us -->
+                <div>
+                    <h3 class="text-lg font-serif font-bold mb-4 text-accent">Follow Us</h3>
+                    <a href="https://www.instagram.com/twobirdsonestonq" target="_blank" rel="noopener noreferrer" class="flex items-center hover:text-accent transition-colors" aria-label="Visit our Instagram">
+                        <svg class="w-6 h-6 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                        </svg>
+                        @twobirdsonestonq
+                    </a>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 pt-8 mt-8 text-center text-gray-500">
+                <p>&copy; 2025 Two Birds One Stone Q. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Global State
+        let currentCategory = 'All';
+        let searchQuery = '';
+        let priceFilter = 'all';
+        let currentSort = 'default';
+        let currentSubCategory = null;
+        let menuData = null;
+        let isLoading = true;
+        let autocompleteSuggestions = [];
+        let selectedSuggestionIndex = -1;
+        
+        // Skeleton Loading HTML
+        const SKELETON_HTML = `
+            <div class="mb-12 fade-in">
+                <div class="h-8 bg-gray-200 rounded w-1/4 mb-6 animate-pulse"></div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    ${Array(6).fill(`
+                        <div class="bg-white p-6 rounded-lg shadow-md">
+                            <div class="h-6 bg-gray-200 rounded w-3/4 mb-4 animate-pulse"></div>
+                            <div class="h-4 bg-gray-200 rounded w-full mb-3 animate-pulse"></div>
+                            <div class="h-4 bg-gray-200 rounded w-5/6 mb-3 animate-pulse"></div>
+                            <div class="h-8 bg-gray-200 rounded-full w-1/3 mb-3 animate-pulse"></div>
+                            <div class="flex justify-between items-center">
+                                <div class="h-4 bg-gray-200 rounded-full w-1/4 animate-pulse"></div>
+                            </div>
+                        </div>
+                    `).join('')}
+                </div>
+            </div>
+        `;
+
+        // Data URLs
+        const MENU_URL = 'menu.json';
+        
+        // Using the skeleton HTML defined above
+        
+        // Fallback Menu Data
+        const FALLBACK_MENU_DATA = {
+            "Coffee": [
+                { "name": "Espresso", "price": "A$4.50", "description": "Rich and intense single shot of coffee" },
+                { "name": "Cappuccino", "price": { "cup": "A$4.80", "mug": "A$5.30" }, "description": "Espresso with steamed milk and a thick layer of foam" },
+                { "name": "Latte", "price": { "cup": "A$4.80", "mug": "A$5.30" }, "description": "Espresso with steamed milk and a thin layer of foam" },
+                { "name": "Flat White", "price": { "cup": "A$4.80", "mug": "A$5.30" }, "description": "Espresso with steamed milk" }
+            ],
+            "Tea": [
+                { "name": "English Breakfast", "price": "A$4.50", "description": "Classic black tea blend" },
+                { "name": "Earl Grey", "price": "A$4.50", "description": "Black tea flavored with bergamot oil" },
+                { "name": "Green Tea", "price": "A$4.50", "description": "Light and refreshing tea with antioxidants" }
+            ],
+            "Breakfast": [
+                { "name": "Avocado Toast", "price": "A$14.50", "description": "Sourdough toast with smashed avocado, feta, and microgreens" },
+                { "name": "Eggs Benedict", "price": "A$18.50", "description": "Poached eggs on English muffin with hollandaise sauce" },
+                { "name": "Granola Bowl", "price": "A$12.50", "description": "House-made granola with yogurt and seasonal fruits" }
+            ],
+            "Lunch": [
+                { "name": "Chicken Sandwich", "price": "A$16.50", "description": "Grilled chicken with avocado, lettuce, and aioli on sourdough" },
+                { "name": "Quinoa Salad", "price": "A$15.50", "description": "Mixed greens with quinoa, roasted vegetables, and lemon dressing" },
+                { "name": "Beef Burger", "price": "A$19.50", "description": "Grass-fed beef patty with cheese, lettuce, tomato, and special sauce" }
+            ]
+        };
+
+        // Initialize App
+        document.addEventListener('DOMContentLoaded', () => {
+            // Load data
+            fetchMenuData();
+
+            // Set up event listeners
+            document.getElementById('menu-search').addEventListener('input', handleSearch);
+
+            // Sticky header on scroll
+            window.addEventListener('scroll', () => {
+                const header = document.getElementById('header');
+                if (window.scrollY > 100) {
+                    header.classList.add('shadow-lg');
+                } else {
+                    header.classList.remove('shadow-lg');
+                }
+            });
+
+            // Close mobile menu when clicking outside
+            document.addEventListener('click', (e) => {
+                const mobileMenu = document.getElementById('mobile-menu');
+                const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+                if (mobileMenu && !mobileMenu.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
+                    mobileMenu.classList.remove('active');
+                }
+            });
+
+            // Close autocomplete dropdown when clicking outside
+            document.addEventListener('click', (e) => {
+                const searchContainer = document.querySelector('.relative');
+                const autocompleteDropdown = document.getElementById('autocomplete-dropdown');
+                
+                if (searchContainer && !searchContainer.contains(e.target) && 
+                    autocompleteDropdown && !autocompleteDropdown.classList.contains('hidden')) {
+                    hideAutocompleteDropdown();
+                }
+            });
+        });
+
+        // Fetch Menu Data
+        async function fetchMenuData() {
+            // Show skeleton loading
+            isLoading = true;
+            document.getElementById('menu-items').innerHTML = SKELETON_HTML;
+            
+            try {
+                const response = await fetch(MENU_URL);
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                const data = await response.json();
+                
+                // Handle different possible data structures
+                if (data.menu && typeof data.menu === 'object') {
+                    // If data has a 'menu' property with categories
+                    menuData = data.menu;
+                } else if (Array.isArray(data)) {
+                    // If data is a flat array, convert to categories
+                    menuData = { 'Menu': data };
+                } else if (typeof data === 'object') {
+                    // If data is an object with categories as top-level properties
+                    menuData = data;
+                } else {
+                    // Fallback to default structure
+                    menuData = FALLBACK_MENU_DATA;
+                }
+                
+                // Simulate a slight delay to show the skeleton (better UX)
+                setTimeout(() => {
+                    isLoading = false;
+                    loadMenu();
+                }, 800);
+            } catch (error) {
+                console.error('Error fetching menu data:', error);
+                // Use fallback data when fetch fails
+                menuData = FALLBACK_MENU_DATA;
+                
+                // Simulate a slight delay to show the skeleton (better UX)
+                setTimeout(() => {
+                    isLoading = false;
+                    loadMenu();
+                }, 800);
+            }
+        }
+
+        // Navigation
+        function navigate(event, path) {
+            if (event) {
+                event.preventDefault();
+            }
+            window.location.href = path;
+        }
+
+        // Scroll to contact (for footer link)
+        function scrollToContact(event) {
+            if (event) {
+                event.preventDefault();
+            }
+            window.location.href = '/';
+        }
+
+        // Mobile Menu Toggle
+        function toggleMobileMenu() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            if (mobileMenu.classList.contains('transform') && mobileMenu.classList.contains('-translate-x-full')) {
+                mobileMenu.classList.remove('-translate-x-full');
+            } else {
+                mobileMenu.classList.add('-translate-x-full');
+            }
+        }
+
+        function loadMenu() {
+            if (!menuData) {
+                setTimeout(loadMenu, 500);
+                return;
+            }
+
+            renderCategoryFilters();
+            renderSubCategoryFilters();
+            renderMenuItems();
+        }
+
+        function renderCategoryFilters() {
+            const container = document.getElementById('category-filters');
+            if (!container || !menuData) return;
+
+            const categories = ['All', ...Object.keys(menuData)];
+
+            container.innerHTML = categories.map(category => `
+                <button
+                    onclick="filterByCategory('${category}')"
+                    class="filter-btn px-6 py-2 rounded-full font-semibold transition-all duration-300 ${
+                        currentCategory === category
+                        ? 'bg-accent text-white shadow-lg transform scale-105 active'
+                        : 'bg-white text-dark hover:bg-accent hover:text-white'
+                    }"
+                >
+                    ${category}
+                </button>
+            `).join('');
+        }
+
+        function filterByCategory(category) {
+            currentCategory = category;
+            currentSubCategory = null; // Reset sub-category when changing main category
+            renderCategoryFilters();
+            renderSubCategoryFilters();
+            renderMenuItems();
+            updateActiveFiltersBar();
+        }
+
+        function filterBySubCategory(subCategory) {
+            currentSubCategory = subCategory;
+            renderMenuItems();
+            updateActiveFiltersBar();
+        }
+
+        function renderSubCategoryFilters() {
+            const container = document.getElementById('sub-category-filters');
+            if (!container || !menuData) return;
+
+            // Check if current category has sub-categories
+            const categoryData = menuData[currentCategory];
+            if (!categoryData || Array.isArray(categoryData)) {
+                container.classList.add('hidden');
+                return;
+            }
+
+            // Get sub-categories
+            const subCategories = Object.keys(categoryData);
+            
+            if (subCategories.length === 0) {
+                container.classList.add('hidden');
+                return;
+            }
+
+            container.classList.remove('hidden');
+            
+            const subCategoriesWithAll = ['All', ...subCategories];
+            
+            container.innerHTML = subCategoriesWithAll.map(subCat => `
+                <button
+                    onclick="filterBySubCategory('${subCat}')"
+                    class="filter-btn px-4 py-2 rounded-full font-medium transition-all duration-300 text-sm ${
+                        currentSubCategory === subCat
+                        ? 'bg-accent bg-opacity-20 text-accent border-2 border-accent'
+                        : 'bg-white text-dark hover:bg-accent hover:text-white border-2 border-transparent'
+                    }"
+                >
+                    ${subCat}
+                </button>
+            `).join('');
+        }
+
+        function handleSearch(event) {
+            const query = event.target.value.toLowerCase();
+            searchQuery = query;
+            
+            // Handle keyboard navigation
+            if (event.key === 'ArrowDown') {
+                event.preventDefault();
+                if (selectedSuggestionIndex < autocompleteSuggestions.length - 1) {
+                    selectedSuggestionIndex++;
+                    renderAutocompleteSuggestions();
+                }
+                return;
+            } else if (event.key === 'ArrowUp') {
+                event.preventDefault();
+                if (selectedSuggestionIndex > 0) {
+                    selectedSuggestionIndex--;
+                    renderAutocompleteSuggestions();
+                }
+                return;
+            } else if (event.key === 'Enter') {
+                event.preventDefault();
+                if (selectedSuggestionIndex >= 0 && selectedSuggestionIndex < autocompleteSuggestions.length) {
+                    selectAutocompleteSuggestion(autocompleteSuggestions[selectedSuggestionIndex].name);
+                    return;
+                }
+            } else if (event.key === 'Escape') {
+                hideAutocompleteDropdown();
+                return;
+            }
+            
+            // Generate autocomplete suggestions
+            if (query.length > 0) {
+                generateAutocompleteSuggestions(query);
+                showAutocompleteDropdown();
+            } else {
+                hideAutocompleteDropdown();
+            }
+            
+            renderMenuItems();
+            updateActiveFiltersBar();
+        }
+
+        function generateAutocompleteSuggestions(query) {
+            if (!menuData || !query) return;
+            
+            const suggestions = [];
+            const queryLower = query.toLowerCase();
+            
+            // Search through all menu items
+            Object.entries(menuData).forEach(([category, categoryData]) => {
+                let items = categoryData;
+                
+                // Handle sub-categories
+                if (!Array.isArray(items)) {
+                    Object.values(items).forEach(subCatItems => {
+                        if (Array.isArray(subCatItems)) {
+                            subCatItems.forEach(item => {
+                                if (item.name.toLowerCase().includes(queryLower)) {
+                                    suggestions.push({
+                                        name: item.name,
+                                        category: category,
+                                        description: item.description || ''
+                                    });
+                                }
+                            });
+                        }
+                    });
+                } else {
+                    items.forEach(item => {
+                        if (item.name.toLowerCase().includes(queryLower)) {
+                            suggestions.push({
+                                name: item.name,
+                                category: category,
+                                description: item.description || ''
+                            });
+                        }
+                    });
+                }
+            });
+            
+            // Limit to 5 suggestions and remove duplicates
+            autocompleteSuggestions = suggestions
+                .filter((item, index, self) => self.findIndex(t => t.name === item.name) === index)
+                .slice(0, 5);
+            
+            renderAutocompleteSuggestions();
+        }
+
+        function renderAutocompleteSuggestions() {
+            const container = document.getElementById('autocomplete-suggestions');
+            if (!container) return;
+            
+            if (autocompleteSuggestions.length === 0) {
+                container.innerHTML = '<div class="px-4 py-2 text-gray-500 text-sm">No suggestions found</div>';
+                return;
+            }
+            
+            container.innerHTML = autocompleteSuggestions.map((suggestion, index) => `
+                <div class="autocomplete-suggestion px-4 py-2 hover:bg-gray-100 cursor-pointer border-b border-gray-100 last:border-b-0 ${
+                    index === selectedSuggestionIndex ? 'bg-gray-100' : ''
+                }" onclick="selectAutocompleteSuggestion('${suggestion.name.replace(/'/g, "\\'")}')">
+                    <div class="font-medium text-dark">${suggestion.name}</div>
+                    <div class="text-sm text-gray-500">${suggestion.category} • ${suggestion.description.substring(0, 50)}${suggestion.description.length > 50 ? '...' : ''}</div>
+                </div>
+            `).join('');
+        }
+
+        function showAutocompleteDropdown() {
+            document.getElementById('autocomplete-dropdown').classList.remove('hidden');
+            selectedSuggestionIndex = -1;
+        }
+
+        function hideAutocompleteDropdown() {
+            document.getElementById('autocomplete-dropdown').classList.add('hidden');
+            selectedSuggestionIndex = -1;
+        }
+
+        function selectAutocompleteSuggestion(itemName) {
+            document.getElementById('menu-search').value = itemName;
+            searchQuery = itemName.toLowerCase();
+            hideAutocompleteDropdown();
+            renderMenuItems();
+            updateActiveFiltersBar();
+        }
+
+        function filterByPrice(priceRange, event) {
+            priceFilter = priceRange;
+            // Update button states
+            document.querySelectorAll('[onclick^="filterByPrice"]').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            if (event && event.target) {
+                event.target.classList.add('active');
+            }
+
+            renderMenuItems();
+            updateActiveFiltersBar();
+        }
+
+
+
+        function handleSortChange(event) {
+            currentSort = event.target.value;
+            renderMenuItems();
+        }
+
+        // Custom Dropdown Functions
+        function toggleSortDropdown() {
+            const dropdown = document.getElementById('sort-dropdown');
+            const chevron = document.getElementById('sort-chevron');
+            
+            if (dropdown.classList.contains('hidden')) {
+                dropdown.classList.remove('hidden');
+                chevron.style.transform = 'rotate(180deg)';
+            } else {
+                dropdown.classList.add('hidden');
+                chevron.style.transform = 'rotate(0deg)';
+            }
+        }
+
+        function selectSortOption(value) {
+            currentSort = value;
+            
+            // Update the selected text
+            const sortLabels = {
+                'default': 'Default',
+                'price-low-high': 'Price: Low to High',
+                'price-high-low': 'Price: High to Low',
+                'name-a-z': 'Name: A to Z',
+                'name-z-a': 'Name: Z to A'
+            };
+            
+            document.getElementById('sort-selected-text').textContent = sortLabels[value];
+            
+            // Close dropdown
+            document.getElementById('sort-dropdown').classList.add('hidden');
+            document.getElementById('sort-chevron').style.transform = 'rotate(180deg)';
+            
+            // Re-render menu items
+            renderMenuItems();
+        }
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', function(event) {
+            const dropdown = document.getElementById('sort-dropdown');
+            const button = document.getElementById('sort-dropdown-btn');
+            
+            if (!dropdown.classList.contains('hidden') && 
+                !button.contains(event.target) && 
+                !dropdown.contains(event.target)) {
+                dropdown.classList.add('hidden');
+                document.getElementById('sort-chevron').style.transform = 'rotate(180deg)';
+            }
+        });
+
+        function sortItems(items, sortOrder) {
+            const itemsCopy = [...items];
+            
+            switch(sortOrder) {
+                case 'price-low-high':
+                    return itemsCopy.sort((a, b) => {
+                        const priceA = extractPriceValue(a.price);
+                        const priceB = extractPriceValue(b.price);
+                        if (priceA === null) return 1;
+                        if (priceB === null) return -1;
+                        return priceA - priceB;
+                    });
+                case 'price-high-low':
+                    return itemsCopy.sort((a, b) => {
+                        const priceA = extractPriceValue(a.price);
+                        const priceB = extractPriceValue(b.price);
+                        if (priceA === null) return 1;
+                        if (priceB === null) return -1;
+                        return priceB - priceA;
+                    });
+                case 'name-a-z':
+                    return itemsCopy.sort((a, b) => a.name.localeCompare(b.name));
+                case 'name-z-a':
+                    return itemsCopy.sort((a, b) => b.name.localeCompare(a.name));
+                default:
+                    return itemsCopy;
+            }
+        }
+
+        function renderMenuItems() {
+            const container = document.getElementById('menu-items');
+            if (!container || !menuData) return;
+
+            let categoriesToShow = currentCategory === 'All' || currentCategory === 'all'
+                ? Object.keys(menuData)
+                : [currentCategory];
+
+            let html = '';
+
+            categoriesToShow.forEach(category => {
+                let items = menuData[category];
+
+                // Handle sub-categories
+                if (!Array.isArray(items)) {
+                    // This category has sub-categories
+                    if (currentSubCategory && currentSubCategory !== 'All') {
+                        items = items[currentSubCategory];
+                        if (!Array.isArray(items)) {
+                            console.warn(`Sub-category ${currentSubCategory} not found in ${category}`);
+                            return;
+                        }
+                    } else {
+                        // Show all items from all sub-categories
+                        let allItems = [];
+                        Object.values(items).forEach(subCatItems => {
+                            if (Array.isArray(subCatItems)) {
+                                allItems = allItems.concat(subCatItems);
+                            }
+                        });
+                        items = allItems;
+                    }
+                }
+
+                // Ensure items is an array
+                if (!Array.isArray(items)) {
+                    console.warn(`Category ${category} is not an array:`, items);
+                    return;
+                }
+
+                // Filter by search query and price
+                items = items.filter(item => {
+                    const matchesSearch = searchQuery === '' ||
+                        item.name.toLowerCase().includes(searchQuery) ||
+                        (item.description && item.description.toLowerCase().includes(searchQuery));
+
+                    const matchesPrice = checkPriceFilter(item);
+
+                    return matchesSearch && matchesPrice;
+                });
+
+                // Apply sorting
+                items = sortItems(items, currentSort);
+
+                if (items.length === 0) return;
+
+                html += `
+                    <div class="mb-12 fade-in">
+                        <h2 class="text-3xl font-serif font-bold mb-6 text-dark border-b-2 border-accent pb-2">${category}</h2>
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                            ${items.map(item => renderMenuItem(item, category)).join('')}
+                        </div>
+                    </div>
+                `;
+            });
+
+            if (!html) {
+                html = `
+                    <div class="text-center py-20">
+                        <svg class="w-24 h-24 mx-auto text-gray-400 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                        </svg>
+                        <p class="text-xl text-gray-600">No menu items found matching your criteria.</p>
+                        <p class="text-gray-500 mt-2">Try adjusting your search terms or filters.</p>
+                        <button onclick="clearFilters()" class="mt-4 bg-accent hover:bg-accent-dark text-white px-6 py-2 rounded-full transition-colors btn-shine">
+                            Reset All Filters
+                        </button>
+                    </div>
+                `;
+            }
+
+            container.innerHTML = html;
+        }
+
+        function checkPriceFilter(item) {
+            if (priceFilter === 'all') return true;
+
+            const priceValue = extractPriceValue(item.price);
+            if (priceValue === null) return true; // Include items without clear pricing
+
+            switch(priceFilter) {
+                case 'under-5':
+                    return priceValue < 5;
+                case '5-10':
+                    return priceValue >= 5 && priceValue < 10;
+                case '10-15':
+                    return priceValue >= 10 && priceValue < 15;
+                case '15-20':
+                    return priceValue >= 15 && priceValue < 20;
+                case '20-25':
+                    return priceValue >= 20 && priceValue < 25;
+                case 'over-25':
+                    return priceValue >= 25;
+                default:
+                    return true;
+            }
+        }
+
+        function extractPriceValue(price) {
+            if (typeof price === 'string') {
+                const match = price.match(/A?\$?(\d+\.?\d*)/);
+                return match ? parseFloat(match[1]) : null;
+            } else if (typeof price === 'object') {
+                // For objects like {"cup": "A$4.80", "mug": "A$5.30"}, get the lowest price for filtering
+                const prices = Object.values(price).map(p => {
+                    if (typeof p === 'string') {
+                        const match = p.match(/A?\$?(\d+\.?\d*)/);
+                        return match ? parseFloat(match[1]) : null;
+                    }
+                    return null;
+                }).filter(p => p !== null);
+
+                return prices.length > 0 ? Math.min(...prices) : null;
+            }
+            return null;
+        }
+
+        function renderMenuItem(item, category) {
+            let priceHtml = '';
+
+            if (typeof item.price === 'string') {
+                priceHtml = `<span class="price-badge text-white font-bold text-lg px-3 py-1 rounded-full">${item.price}</span>`;
+            } else if (typeof item.price === 'object') {
+                priceHtml = Object.entries(item.price).map(([size, price]) =>
+                    `<div class="mb-2">
+                        <span class="text-accent font-semibold text-sm">${size}:</span>
+                        <span class="price-badge text-white font-bold px-2 py-1 rounded-full ml-2">${price}</span>
+                    </div>`
+                ).join('');
+            } else {
+                priceHtml = `<span class="text-gray-500 italic">Price unavailable</span>`;
+            }
+
+            return `
+                <div class="menu-item-card bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-all duration-300">
+                    <div class="mb-4">
+                        <h3 class="text-xl font-serif font-bold text-dark mb-2">${item.name}</h3>
+                        ${item.description ? `<p class="text-gray-600 text-sm leading-relaxed mb-3">${item.description}</p>` : ''}
+                    </div>
+                    <div class="flex flex-col justify-between items-start">
+                        <div class="w-full mb-3">
+                            ${priceHtml}
+                        </div>
+                        <div class="flex items-center justify-between w-full">
+                            <span class="text-xs text-gray-500 bg-gray-100 px-2 py-1 rounded-full">${category}</span>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        function addToOrder(itemName) {
+            // Simple alert for now - could be enhanced with cart functionality
+            alert(`Added "${itemName}" to your order!`);
+        }
+
+        function clearFilters() {
+            searchQuery = '';
+            priceFilter = 'all';
+            currentCategory = 'All';
+            currentSubCategory = null;
+            currentSort = 'default';
+
+            document.getElementById('menu-search').value = '';
+            document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+            document.querySelectorAll('[onclick^="filterByPrice"]').forEach(btn => btn.classList.remove('active'));
+            document.querySelector('[onclick="filterByPrice(\'all\', event)"]').classList.add('active');
+
+            // Reset custom sort dropdown
+            document.getElementById('sort-selected-text').textContent = 'Default';
+            document.getElementById('sort-dropdown').classList.add('hidden');
+            document.getElementById('sort-chevron').style.transform = 'rotate(0deg)';
+
+            renderCategoryFilters();
+            renderSubCategoryFilters();
+            renderMenuItems();
+            updateActiveFiltersBar();
+        }
+
+        function clearAllFilters() {
+            clearFilters();
+        }
+
+        function updateActiveFiltersBar() {
+            const activeFiltersContainer = document.getElementById('active-filters');
+            const filterChipsContainer = document.getElementById('filter-chips');
+            
+            const activeFilters = [];
+            
+            // Check each filter type
+            if (currentCategory !== 'All' && currentCategory !== 'all') {
+                activeFilters.push({ type: 'category', value: currentCategory, label: currentCategory });
+            }
+
+            if (currentSubCategory && currentSubCategory !== 'All') {
+                activeFilters.push({ type: 'subcategory', value: currentSubCategory, label: currentSubCategory });
+            }
+            
+            if (searchQuery !== '') {
+                activeFilters.push({ type: 'search', value: searchQuery, label: `Search: "${searchQuery}"` });
+            }
+            
+            if (priceFilter !== 'all') {
+                const priceLabels = {
+                    'under-5': 'Under $5',
+                    '5-10': '$5 - $10',
+                    '10-15': '$10 - $15',
+                    '15-20': '$15 - $20',
+                    '20-25': '$20 - $25',
+                    'over-25': 'Over $25'
+                };
+                activeFilters.push({ type: 'price', value: priceFilter, label: priceLabels[priceFilter] });
+            }
+            
+            if (currentSort !== 'default') {
+                const sortLabels = {
+                    'price-low-high': 'Price: Low to High',
+                    'price-high-low': 'Price: High to Low',
+                    'name-a-z': 'Name: A to Z',
+                    'name-z-a': 'Name: Z to A'
+                };
+                activeFilters.push({ type: 'sort', value: currentSort, label: sortLabels[currentSort] });
+            }
+            
+            if (activeFilters.length > 0) {
+                activeFiltersContainer.classList.remove('hidden');
+                filterChipsContainer.innerHTML = activeFilters.map(filter => `
+                    <div class="inline-flex items-center bg-accent bg-opacity-10 text-accent px-3 py-1 rounded-full text-sm font-medium">
+                        <span>${filter.label}</span>
+                        <button onclick="removeFilter('${filter.type}', '${filter.value.replace(/'/g, "\\'")}')" 
+                                class="ml-2 text-accent hover:text-accent-dark focus:outline-none"
+                                aria-label="Remove ${filter.label} filter">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                            </svg>
+                        </button>
+                    </div>
+                `).join('');
+            } else {
+                activeFiltersContainer.classList.add('hidden');
+            }
+        }
+
+        function removeFilter(filterType, filterValue) {
+            switch(filterType) {
+                case 'category':
+                    currentCategory = 'All';
+                    currentSubCategory = null;
+                    renderCategoryFilters();
+                    renderSubCategoryFilters();
+                    break;
+                case 'subcategory':
+                    currentSubCategory = 'All';
+                    renderSubCategoryFilters();
+                    break;
+                case 'search':
+                    searchQuery = '';
+                    document.getElementById('menu-search').value = '';
+                    break;
+                case 'price':
+                    priceFilter = 'all';
+                    document.querySelectorAll('[onclick^="filterByPrice"]').forEach(btn => btn.classList.remove('active'));
+                    document.querySelector('[onclick="filterByPrice(\'all\', event)"]').classList.add('active');
+                    break;
+                case 'sort':
+                    currentSort = 'default';
+                    document.getElementById('sort-selected-text').textContent = 'Default';
+                    break;
+            }
+            
+            renderMenuItems();
+            updateActiveFiltersBar();
+        }
+
+        // Update active nav link
+        function updateActiveNavLink(path) {
+            const navLinks = document.querySelectorAll('.nav-link');
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                const href = link.getAttribute('href');
+                if (href === path || (href === '/' && path === '/')) {
+                    link.classList.add('active');
+                }
+            });
+        }
+    </script>
+</body>
+</html>

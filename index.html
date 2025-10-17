@@ -1,0 +1,1379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Two Birds One Stone Q | Your Local Cafe by the Water</title>
+    <meta name="description" content="Experience exquisite dining at Two Birds One Stone Q, your local cafe by the water in Mermaid Waters, QLD.">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Two Birds One Stone Q | Your Local Cafe by the Water">
+    <meta property="og:description" content="Experience exquisite dining at Two Birds One Stone Q, your local cafe by the water in Mermaid Waters, QLD.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://twobirdsonestonq.com">
+    <meta property="og:image" content="https://lh3.googleusercontent.com/p/AF1QipP3k2O7kxZQqYJ9sZXxZxZxZxZ">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Two Birds One Stone Q | Your Local Cafe by the Water">
+    <meta name="twitter:description" content="Experience exquisite dining at Two Birds One Stone Q, your local cafe by the water in Mermaid Waters, QLD.">
+    <meta name="twitter:image" content="https://lh3.googleusercontent.com/p/AF1QipP3k2O7kxZQqYJ9sZXxZxZxZxZ">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#FFFFFF',
+                        secondary: '#F9FAFB',
+                        dark: '#1F2937',
+                        accent: '#D2B48C',
+                        'accent-dark': '#856868',
+                    },
+                    fontFamily: {
+                        serif: ['Cormorant Garamond', 'serif'],
+                        sans: ['Montserrat', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="https://raw.githubusercontent.com/gumtreedigitalworld/Two-birds-one-stone-Q/refs/heads/main/favicon.ico">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- JSON-LD Structured Data (will be updated dynamically) -->
+    <script type="application/ld+json" id="structured-data">
+    {
+        "@context": "https://schema.org",
+        "@type": "Restaurant",
+        "name": "Two Birds One Stone Q",
+        "image": "https://lh3.googleusercontent.com/p/AF1QipP3k2O7kxZQqYJ9sZXxZxZxZxZ",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Shop B10/14 Allandale Entrance",
+            "addressLocality": "Mermaid Waters",
+            "addressRegion": "QLD",
+            "postalCode": "4218",
+            "addressCountry": "AU"
+        },
+        "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": -28.0524,
+            "longitude": 153.4167
+        },
+        "url": "https://twobirdsonestonq.com",
+        "telephone": "+61-XXX-XXX-XXX",
+        "servesCuisine": "Cafe",
+        "priceRange": "$$",
+        "openingHoursSpecification": [
+            {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+                "opens": "07:00",
+                "closes": "16:00"
+            },
+            {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": ["Saturday"],
+                "opens": "07:00",
+                "closes": "16:00"
+            },
+            {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": ["Sunday"],
+                "opens": "07:30",
+                "closes": "16:00"
+            }
+        ]
+    }
+    </script>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Cormorant Garamond', serif;
+        }
+        
+        /* Smooth scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: #F9FAFB;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: #D2B48C;
+            border-radius: 5px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: #856868;
+        }
+        
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes slideIn {
+            from {
+                transform: translateX(-100%);
+            }
+            to {
+                transform: translateX(0);
+            }
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.6s ease-out forwards;
+        }
+        
+        .slide-in {
+            animation: slideIn 0.3s ease-out forwards;
+        }
+        
+        /* Hero gradient overlay */
+        .hero-overlay {
+            background: linear-gradient(135deg, rgba(31, 41, 55, 0.7) 0%, rgba(133, 104, 104, 0.5) 100%);
+        }
+        
+        /* Card hover effects */
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        /* Mobile menu */
+        .mobile-menu {
+            transform: translateX(-100%);
+            transition: transform 0.3s ease;
+        }
+        
+        .mobile-menu.active {
+            transform: translateX(0);
+        }
+        
+        /* Lightbox */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 9999;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .lightbox.active {
+            display: flex;
+            opacity: 1;
+        }
+        
+        .lightbox img {
+            max-width: 65%;
+            max-height: 90vh;
+            object-fit: contain;
+        }
+        
+        /* Masonry Grid */
+        .masonry-grid {
+            column-count: 1;
+            column-gap: 1rem;
+        }
+        
+        @media (min-width: 640px) {
+            .masonry-grid {
+                column-count: 2;
+            }
+        }
+        
+        @media (min-width: 1024px) {
+            .masonry-grid {
+                column-count: 3;
+            }
+        }
+        
+        .masonry-item {
+            break-inside: avoid;
+            margin-bottom: 1rem;
+        }
+        
+        /* Lazy load placeholder */
+        img[loading="lazy"] {
+            background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+            background-size: 200% 100%;
+            animation: loading 1.5s infinite;
+        }
+        
+        @keyframes loading {
+            0% {
+                background-position: 200% 0;
+            }
+            100% {
+                background-position: -200% 0;
+            }
+        }
+        
+        /* Active nav link */
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #D2B48C;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 100%;
+        }
+        
+        /* Price badge */
+        .price-badge {
+            background: linear-gradient(135deg, #D2B48C 0%, #856868 100%);
+        }
+        
+        /* Button shine effect */
+        .btn-shine {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn-shine::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.5s;
+        }
+        
+        .btn-shine:hover::before {
+            left: 100%;
+        }
+
+        /* Status Indicator Animation */
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                opacity: 1;
+                box-shadow: 0 0 0 0 rgba(22, 163, 74, 0.7);
+            }
+            70% {
+                transform: scale(1.2);
+                opacity: 0.7;
+                box-shadow: 0 0 10px 15px rgba(22, 163, 74, 0);
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+                box-shadow: 0 0 0 0 rgba(22, 163, 74, 0);
+            }
+        }
+
+        .pulse-animation {
+            animation: pulse 2s infinite;
+        }
+
+        /* Hero Gallery Pinterest Style */
+        .hero-gallery-masonry {
+            width: 100%;
+        }
+
+        .hero-gallery-masonry .columns-2 {
+            column-count: 2;
+        }
+
+        .hero-gallery-masonry .columns-3 {
+            column-count: 3;
+        }
+
+        .hero-gallery-masonry .columns-4 {
+            column-count: 4;
+        }
+
+        .hero-gallery-masonry .columns-5 {
+            column-count: 5;
+        }
+
+        .hero-gallery-masonry .columns-6 {
+            column-count: 6;
+        }
+
+        @media (max-width: 768px) {
+            .hero-gallery-masonry .columns-2,
+            .hero-gallery-masonry .columns-3,
+            .hero-gallery-masonry .columns-4,
+            .hero-gallery-masonry .columns-5,
+            .hero-gallery-masonry .columns-6 {
+                column-count: 2;
+            }
+        }
+
+        .hero-gallery-masonry img {
+            break-inside: avoid;
+            margin-bottom: 1rem;
+            width: 100%;
+            height: auto;
+            max-width: 300px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .hero-gallery-masonry img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Hero Gallery Image */
+        .hero-gallery-image {
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .hero-gallery-image:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+<body class="bg-secondary text-dark">
+    
+    <!-- Header -->
+    <header id="header" class="bg-white/80 backdrop-blur-sm shadow-md fixed w-full top-0 z-50 transition-all duration-300">
+        <nav class="container mx-auto px-4 md:px-20 py-4 flex justify-between items-center">
+            <!-- Logo -->
+            <a href="/" class="text-2xl md:text-3xl font-serif font-bold text-dark hover:text-accent transition-colors">
+                Two Birds One Stone Q
+            </a>
+            
+            <!-- Desktop Navigation -->
+            <div class="hidden md:flex space-x-8">
+                <a href="/" class="nav-link text-dark hover:text-accent transition-colors font-medium active">Home</a>
+                <a href="/menu.html" class="nav-link text-dark hover:text-accent transition-colors font-medium">Menu</a>
+                <a href="/gallery.html" class="nav-link text-dark hover:text-accent transition-colors font-medium">Gallery</a>
+                <a href="#contact" class="nav-link text-dark hover:text-accent transition-colors font-medium">Contact</a>
+            </div>
+            
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-btn" class="md:hidden text-dark focus:outline-none" onclick="toggleMobileMenu()">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+        </nav>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="mobile-menu fixed top-0 left-0 w-64 h-full bg-white shadow-2xl md:hidden z-50">
+            <div class="p-6">
+                <button onclick="toggleMobileMenu()" class="mb-8 text-dark focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+                <div class="flex flex-col space-y-6">
+                    <a href="/" class="text-dark hover:text-accent transition-colors font-medium text-lg">Home</a>
+                    <a href="/menu" class="text-dark hover:text-accent transition-colors font-medium text-lg">Menu</a>
+                    <a href="/gallery" class="text-dark hover:text-accent transition-colors font-medium text-lg">Gallery</a>
+                    <a href="#contact" class="text-dark hover:text-accent transition-colors font-medium text-lg">Contact</a>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Main Content -->
+    <main id="app" class="pt-16">
+        <!-- Content will be dynamically rendered here -->
+    </main>
+    
+    <!-- Footer -->
+    <footer class="bg-dark text-white pt-16 pb-8">
+        <div class="container mx-auto px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <!-- About Us -->
+                <div>
+                    <h3 class="text-lg font-serif font-bold mb-4 text-accent">About Us</h3>
+                    <p class="text-gray-400">Your local cafe by the water, serving quality food with a side of warmth and genuine connection.</p>
+                </div>
+                <!-- Quick Links -->
+                <div>
+                    <h3 class="text-lg font-serif font-bold mb-4 text-accent">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="/" class="hover:text-accent transition-colors">Home</a></li>
+                        <li><a href="/menu.html" class="hover:text-accent transition-colors">Menu</a></li>
+                        <li><a href="/gallery.html" class="hover:text-accent transition-colors">Gallery</a></li>
+                        <li><a href="#contact" class="hover:text-accent transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+                <!-- Contact Us -->
+                <div>
+                    <h3 class="text-lg font-serif font-bold mb-4 text-accent">Contact Us</h3>
+                    <p class="text-gray-400">Shop B10/14 Allandale Entrance<br>Mermaid Waters QLD 4218</p>
+                    <a href="https://maps.google.com/maps?q=Two%20Birds%20One%20Stone%20Q%20Shop%20B10/14%20Allandale%20Entrance%20Mermaid%20Waters%20QLD%204218%20Australia" target="_blank" rel="noopener noreferrer" class="text-accent hover:text-accent-dark transition-colors mt-2 inline-block">Get Directions</a>
+                </div>
+                <!-- Follow Us -->
+                <div>
+                    <h3 class="text-lg font-serif font-bold mb-4 text-accent">Follow Us</h3>
+                    <a href="https://www.instagram.com/twobirdsonestonq" target="_blank" rel="noopener noreferrer" class="flex items-center hover:text-accent transition-colors" aria-label="Visit our Instagram">
+                        <svg class="w-6 h-6 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                        </svg>
+                        @twobirdsonestonq
+                    </a>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 pt-8 mt-8 text-center text-gray-500">
+                <p>&copy; 2025 Two Birds One Stone Q. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Main Lightbox -->
+    <div id="lightbox" class="lightbox items-center justify-center">
+        <button id="lightbox-close" class="absolute top-4 right-4 text-white text-4xl font-bold hover:text-accent transition-colors z-10" aria-label="Close lightbox">&times;</button>
+        <button id="lightbox-prev" class="absolute left-4 text-white text-6xl font-bold hover:text-accent transition-colors z-10" aria-label="Previous image">&#8249;</button>
+        <button id="lightbox-next" class="absolute right-4 text-white text-6xl font-bold hover:text-accent transition-colors z-10" aria-label="Next image">&#8250;</button>
+        <img id="lightbox-img" src="" alt="Gallery image" class="rounded-lg">
+    </div>
+
+    <!-- Hero Gallery Lightbox -->
+    <div id="hero-lightbox" class="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center z-50" onclick="closeHeroLightbox()" style="display: none;">
+        <button id="hero-lightbox-close" class="absolute top-4 right-4 text-white text-4xl font-bold hover:text-accent transition-colors z-10" aria-label="Close lightbox">&times;</button>
+        <button id="hero-lightbox-prev" class="absolute left-4 text-white text-6xl font-bold hover:text-accent transition-colors z-10" aria-label="Previous image">&#8249;</button>
+        <button id="hero-lightbox-next" class="absolute right-4 text-white text-6xl font-bold hover:text-accent transition-colors z-10" aria-label="Next image">&#8250;</button>
+        <div class="relative max-w-full max-h-full flex items-center justify-center" onclick="event.stopPropagation()">
+            <img id="hero-lightbox-img" src="" alt="Gallery image" class="max-w-[65%] max-h-full object-contain block">
+        </div>
+    </div>
+
+    <script>
+        // Global State
+        let menuData = null;
+        let galleryData = null;
+        let heroGalleryData = null;
+        let currentRoute = '/';
+        let currentLightboxIndex = 0;
+        
+        // Data URLs
+        const MENU_URL = 'https://raw.githubusercontent.com/gumtreedigitalworld/Two-birds-one-stone-Q/main/Two%20birds%20one%20stone%20Q.json';
+        const GALLERY_URL = 'https://raw.githubusercontent.com/gumtreedigitalworld/Two-birds-one-stone-Q/main/google-maps-images-1760530453571.json';
+        
+        // Initialize App
+        document.addEventListener('DOMContentLoaded', () => {
+            // Load data
+            fetchMenuData();
+            fetchGalleryData();
+            // Note: loadHeroGallery() is now called from fetchGalleryData() after data loads
+
+            // Set up routing
+            window.addEventListener('popstate', () => {
+                const path = window.location.pathname;
+                renderRoute(path);
+            });
+
+            // Initial route
+            const initialPath = window.location.pathname;
+            renderRoute(initialPath);
+
+            // Main Lightbox event listeners
+            document.getElementById('lightbox-close').addEventListener('click', closeLightbox);
+            document.getElementById('lightbox-prev').addEventListener('click', () => navigateLightbox(-1));
+            document.getElementById('lightbox-next').addEventListener('click', () => navigateLightbox(1));
+
+            // Hero Gallery Lightbox functionality
+            document.getElementById('hero-lightbox-close').addEventListener('click', closeHeroLightbox);
+            document.getElementById('hero-lightbox-prev').addEventListener('click', () => navigateHeroLightbox(-1));
+            document.getElementById('hero-lightbox-next').addEventListener('click', () => navigateHeroLightbox(1));
+
+            // Keyboard navigation for lightboxes
+            document.addEventListener('keydown', (e) => {
+                const mainLightbox = document.getElementById('lightbox');
+                const heroLightbox = document.getElementById('hero-lightbox');
+                if (mainLightbox.classList.contains('active')) {
+                    if (e.key === 'Escape') closeLightbox();
+                    if (e.key === 'ArrowLeft') navigateLightbox(-1);
+                    if (e.key === 'ArrowRight') navigateLightbox(1);
+                }
+                if (heroLightbox.style.display === 'flex') {
+                    if (e.key === 'Escape') closeHeroLightbox();
+                    if (e.key === 'ArrowLeft') navigateHeroLightbox(-1);
+                    if (e.key === 'ArrowRight') navigateHeroLightbox(1);
+                }
+            });
+
+            // Close mobile menu when clicking outside
+            document.addEventListener('click', (e) => {
+                const mobileMenu = document.getElementById('mobile-menu');
+                const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+                if (!mobileMenu.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
+                    mobileMenu.classList.remove('active');
+                }
+            });
+
+            // Sticky header on scroll
+            window.addEventListener('scroll', () => {
+                const header = document.getElementById('header');
+                if (window.scrollY > 100) {
+                    header.classList.add('shadow-lg');
+                } else {
+                    header.classList.remove('shadow-lg');
+                }
+            });
+
+            // Set up live operating status
+            updateOperatingStatus();
+            setInterval(updateOperatingStatus, 60000); // Update every minute
+        });
+        
+        // Fetch Menu Data
+        async function fetchMenuData() {
+            try {
+                const response = await fetch(MENU_URL);
+                const data = await response.json();
+                menuData = data.menu;
+            } catch (error) {
+                console.error('Error fetching menu data:', error);
+                menuData = {};
+            }
+        }
+        
+        // Fetch Gallery Data
+        async function fetchGalleryData() {
+            try {
+                const response = await fetch(GALLERY_URL);
+                galleryData = await response.json();
+                // Load hero gallery after data is fetched
+                loadHeroGallery();
+            } catch (error) {
+                console.error('Error fetching gallery data:', error);
+                galleryData = [];
+                // Load hero gallery even if API fails (will show fallbacks)
+                loadHeroGallery();
+            }
+        }
+
+        // Load Hero Gallery Images (Pinterest Style)
+        function loadHeroGallery() {
+            const container = document.getElementById('hero-gallery-container');
+
+            if (!container) return;
+
+            if (!galleryData || galleryData.length === 0) {
+                // Fallback images if API fails - Pinterest style
+                const fallbackImages = [
+                    { url: "https://images.unsplash.com/photo-1554118811-1e0d58224f24?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80", alt: "Cafe interior" },
+                    { url: "https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80", alt: "Coffee and food" },
+                    { url: "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80", alt: "Cafe seating" },
+                    { url: "https://images.unsplash.com/photo-1559056199-641a0ac8b55e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80", alt: "Fresh dishes" },
+                    { url: "https://images.unsplash.com/photo-1449824913935-59a10b8d2000?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80", alt: "Cafe atmosphere" },
+                    { url: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80", alt: "Delicious food" },
+                    { url: "https://images.unsplash.com/photo-1507133750040-4a8f57021571?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80", alt: "Coffee art" },
+                    { url: "https://images.unsplash.com/photo-1521017432531-fbd92d768814?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80", alt: "Breakfast spread" }
+                ];
+                heroGalleryData = fallbackImages;
+
+                container.innerHTML = fallbackImages.map((image, index) => `
+                    <div class="break-inside-avoid mb-4">
+                        <img src="${image.url}"
+                            alt="${image.alt}"
+                            class="w-full h-auto object-cover rounded-xl shadow-sm hover:shadow-xl transition-all duration-300 cursor-pointer hover:scale-102 hero-gallery-image"
+                            onclick="openHeroLightbox(${index})"
+                            style="animation-delay: ${index * 0.1}s;">
+                    </div>
+                `).join('');
+                return;
+            }
+
+            // Use 8 images for Pinterest-style layout
+            const heroImages = galleryData.slice(0, 6);
+            heroGalleryData = heroImages;
+
+            container.innerHTML = heroImages.map((image, index) => `
+                <div class="break-inside-avoid mb-4">
+                    <img src="${image.url}"
+                        alt="${image.filename || `Gallery image ${index + 1}`}"
+                        class="w-full h-auto object-cover rounded-xl shadow-sm hover:shadow-xl transition-all duration-300 cursor-pointer hover:scale-102 hero-gallery-image"
+                        onclick="openHeroLightbox(${index})"
+                        style="animation-delay: ${index * 0.1}s;">
+                </div>
+            `).join('');
+        }
+
+        // Hero Gallery Lightbox
+        let currentHeroLightboxIndex = 0;
+        function openHeroLightbox(index) {
+            currentHeroLightboxIndex = index;
+            const lightbox = document.getElementById('hero-lightbox');
+            const lightboxImg = document.getElementById('hero-lightbox-img');
+
+            if (heroGalleryData && heroGalleryData[index]) {
+                lightboxImg.src = heroGalleryData[index].url;
+                lightboxImg.alt = heroGalleryData[index].alt || heroGalleryData[index].filename || `Gallery image ${index + 1}`;
+                lightbox.style.display = 'flex';
+                document.body.style.overflow = 'hidden';
+            }
+        }
+
+        function closeHeroLightbox() {
+            const lightbox = document.getElementById('hero-lightbox');
+            if (lightbox) {
+                lightbox.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        }
+
+        function navigateHeroLightbox(direction) {
+            if (!heroGalleryData) return;
+
+            currentHeroLightboxIndex += direction;
+
+            if (currentHeroLightboxIndex < 0) {
+                currentHeroLightboxIndex = heroGalleryData.length - 1;
+            } else if (currentHeroLightboxIndex >= heroGalleryData.length) {
+                currentHeroLightboxIndex = 0;
+            }
+
+            openHeroLightbox(currentHeroLightboxIndex);
+        }
+
+        // Handle browser back button when lightbox is open
+        window.addEventListener('popstate', function(event) {
+            const lightbox = document.getElementById('hero-lightbox');
+            if (lightbox && lightbox.style.display === 'flex') {
+                closeHeroLightbox();
+            }
+        });
+        
+        // Navigation
+        function navigate(event, path) {
+            event.preventDefault();
+            window.history.pushState({}, '', path);
+            renderRoute(path);
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        // Scroll to contact
+        function scrollToContact(event) {
+            event.preventDefault();
+            const currentPath = window.location.pathname;
+            if (currentPath !== '/') {
+                navigate(event, '/');
+                setTimeout(() => {
+                    const contactSection = document.getElementById('contact');
+                    if (contactSection) {
+                        contactSection.scrollIntoView({ behavior: 'smooth' });
+                    }
+                }, 500);
+            } else {
+                const contactSection = document.getElementById('contact');
+                if (contactSection) {
+                    contactSection.scrollIntoView({ behavior: 'smooth' });
+                }
+            }
+        }
+        
+        // Mobile Menu Toggle
+        function toggleMobileMenu() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('active');
+        }
+        
+        // Route Rendering
+        function renderRoute(path) {
+            currentRoute = path;
+            const app = document.getElementById('app');
+            
+            // Update active nav link
+            updateActiveNavLink(path);
+            
+            switch(path) {
+                case '/':
+                    renderHomePage(app);
+                    updateSEO('Two Birds One Stone Q | Your Local Cafe by the Water', 'Experience exquisite dining at Two Birds One Stone Q, your local cafe by the water in Mermaid Waters, QLD.');
+                    break;
+                case '/menu':
+                    renderMenuPage(app);
+                    updateSEO('Our Menu | Two Birds One Stone Q', 'Explore our delicious menu featuring hot drinks, all-day breakfast, and more at Two Birds One Stone Q.');
+                    break;
+                case '/gallery':
+                    renderGalleryPage(app);
+                    updateSEO('Gallery | Two Birds One Stone Q', 'Take a glimpse of our beautiful cafe and delicious dishes at Two Birds One Stone Q.');
+                    break;
+                default:
+                    renderHomePage(app);
+                    updateSEO('Two Birds One Stone Q | Your Local Cafe by the Water', 'Experience exquisite dining at Two Birds One Stone Q, your local cafe by the water in Mermaid Waters, QLD.');
+            }
+        }
+        
+        // Update Active Nav Link
+        function updateActiveNavLink(path) {
+            const navLinks = document.querySelectorAll('.nav-link');
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                const href = link.getAttribute('href');
+                if (href === path || (href === '/' && path === '/')) {
+                    link.classList.add('active');
+                }
+            });
+        }
+        
+        // Update SEO
+        function updateSEO(title, description) {
+            document.title = title;
+            document.querySelector('meta[name="description"]').setAttribute('content', description);
+            document.querySelector('meta[property="og:title"]').setAttribute('content', title);
+            document.querySelector('meta[property="og:description"]').setAttribute('content', description);
+            document.querySelector('meta[name="twitter:title"]').setAttribute('content', title);
+            document.querySelector('meta[name="twitter:description"]').setAttribute('content', description);
+        }
+        
+        // ==================== HOME PAGE ====================
+        function renderHomePage(container) {
+            container.innerHTML = `
+                <!-- Hero Section -->
+                <section class="relative h-screen flex items-center justify-center overflow-hidden">
+                    <div class="absolute inset-0 z-0">
+                        <img src="https://raw.githubusercontent.com/gumtreedigitalworld/Two-birds-one-stone-Q/refs/heads/main/hero-section-image.jpg" alt="Cafe interior" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 hero-overlay"></div>
+                    </div>
+                    <div class="relative z-10 text-center text-white px-4 fade-in">
+                        <h1 class="text-5xl md:text-7xl font-serif font-bold mb-4">Two Birds One Stone Q</h1>
+                        <p class="text-xl md:text-2xl font-light mb-8 text-accent">Your Local Cafe by the Water</p>
+                        <a href="/menu" class="bg-accent hover:bg-accent-dark text-white font-semibold px-8 py-4 rounded-full text-lg transition-all duration-300 transform hover:scale-105 btn-shine inline-block">
+                            View Our Menu
+                        </a>
+                    </div>
+                    <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+                        </svg>
+                    </div>
+                </section>
+                
+                <!-- About Section -->
+                <section class="py-20 bg-white">
+                    <div class="container mx-auto px-4">
+                        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center max-w-7xl mx-auto">
+                            <!-- Text Content -->
+                            <div class="fade-in">
+                                <div class="mb-8">
+                                    <h2 class="text-4xl md:text-5xl font-serif font-bold mb-6 text-dark">Our Story</h2>
+                                    <div class="w-24 h-1 bg-accent mb-6"></div>
+                                </div>
+
+                                <div class="space-y-6 text-gray-700">
+                                    <p class="text-lg leading-relaxed">
+                                        <strong class="text-dark">Meet Sarah and Phil</strong> — your local Gold Coast family who took over Two Birds One Stone Q in November 2024.
+                                        Alongside raising their two young kids, Charlie (11) and Arabella (9), they've been working hard to breathe new life and energy into this beloved community venue.
+                                    </p>
+
+                                    <p class="text-lg leading-relaxed">
+                                        <strong class="text-dark">More than just a cafe</strong> — we're bringing back the good vibes and community spirit that Mermaid Waters loves.
+                                        Nestled by the serene waters, we believe in serving quality food with a side of warmth and genuine connection.
+                                    </p>
+
+                                    <div class="bg-secondary p-6 rounded-lg mt-8">
+                                        <h3 class="text-xl font-serif font-bold mb-4 text-dark flex items-center">
+                                            <svg class="w-5 h-5 mr-2 text-accent" fill="currentColor" viewBox="0 0 20 20">
+                                                <path fill-rule="evenodd" d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zm0 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V8zm0 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1v-2z" clip-rule="evenodd"></path>
+                                            </svg>
+                                            What Makes Us Special
+                                        </h3>
+                                        <ul class="space-y-3 text-gray-600">
+                                            <li class="flex items-start">
+                                                <span class="w-2 h-2 bg-accent rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                                                <span><strong>Waterside Location:</strong> Perfect spot for relaxed dining with serene water views</span>
+                                            </li>
+                                            <li class="flex items-start">
+                                                <span class="w-2 h-2 bg-accent rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                                                <span><strong>Family-Owned & Operated:</strong> Personal touch in every coffee and meal we serve</span>
+                                            </li>
+                                            <li class="flex items-start">
+                                                <span class="w-2 h-2 bg-accent rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                                                <span><strong>Community Focused:</strong> Bringing people together over great food and conversation</span>
+                                            </li>
+                                            <li class="flex items-start">
+                                                <span class="w-2 h-2 bg-accent rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                                                <span><strong>Fresh & Local:</strong> Quality ingredients sourced from local suppliers</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Image Content -->
+                            <div class="fade-in" style="animation-delay: 0.2s;">
+                                <div class="relative">
+                                    <img
+                                        src="https://raw.githubusercontent.com/gumtreedigitalworld/Two-birds-one-stone-Q/refs/heads/main/our-story-section.jpg"
+                                        alt="Sarah and Phil - Owners of Two Birds One Stone Q"
+                                        class="w-full h-auto rounded-lg shadow-xl object-cover"
+                                        style="max-height: 600px;"
+                                    >
+                                    <div class="absolute inset-0 bg-gradient-to-t from-dark/20 to-transparent rounded-lg"></div>
+                                    <div class="absolute bottom-4 left-4 text-white">
+                                        <p class="text-sm font-medium">Sarah & Phil - November 2024</p>
+                                        <p class="text-xs opacity-90">Starting a new chapter by the water</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                
+                <!-- Featured Dishes Section -->
+                <section class="py-20 bg-secondary">
+                    <div class="container mx-auto px-4 md:px-20">
+                        <div class="text-center mb-12 fade-in">
+                            <h2 class="text-4xl md:text-5xl font-serif font-bold mb-4 text-dark">Featured Dishes</h2>
+                            <div class="w-24 h-1 bg-accent mx-auto mb-6"></div>
+                            <p class="text-lg text-gray-600">Discover our most beloved breakfast items</p>
+                        </div>
+                        <div id="featured-dishes" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+                            <!-- Will be populated by JavaScript -->
+                        </div>
+                        <div class="text-center fade-in">
+                            <a href="/menu.html" class="bg-dark hover:bg-accent-dark text-white font-semibold px-8 py-3 rounded-full text-lg transition-all duration-300 transform hover:scale-105 btn-shine inline-block">
+                                See Full Menu
+                            </a>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Hero Gallery Section -->
+                <section class="py-20 bg-white">
+                    <div class="container mx-auto px-4">
+                        <div class="text-center mb-12 fade-in">
+                            <h2 class="text-4xl md:text-5xl font-serif font-bold mb-4 text-dark">Our Atmosphere</h2>
+                            <div class="w-24 h-1 bg-accent mx-auto mb-6"></div>
+                            <p class="text-lg text-gray-600">Experience the warm ambiance of our waterside cafe</p>
+                        </div>
+
+                        <!-- Pinterest-Style Gallery Grid -->
+                        <div class="hero-gallery-masonry fade-in max-w-7xl mx-auto px-4">
+                            <div class="columns-1 sm:columns-2 md:columns-3 lg:columns-4 gap-4" id="hero-gallery-container">
+                                <!-- Will be populated by JavaScript with 6-7 images -->
+                            </div>
+                        </div>
+
+                        <!-- Gallery CTA -->
+                        <div class="text-center mt-12 fade-in" style="animation-delay: 0.6s;">
+                            <a href="/gallery.html" class="bg-dark hover:bg-accent-dark text-white font-semibold px-8 py-4 rounded-full text-lg transition-all duration-300 transform hover:scale-105 btn-shine inline-block">
+                                Explore Our Full Gallery
+                            </a>
+                            <p class="text-gray-600 mt-4">Discover more of our cafe atmosphere and delicious dishes</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Testimonials Section -->
+                <section class="py-20 bg-white">
+                    <div class="container mx-auto px-4">
+                        <div class="text-center mb-12 fade-in">
+                            <h2 class="text-4xl md:text-5xl font-serif font-bold mb-4 text-dark">What Our Customers Say</h2>
+                            <div class="w-24 h-1 bg-accent mx-auto"></div>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                            <div class="bg-secondary p-8 rounded-lg shadow-lg card-hover fade-in">
+                                <div class="flex mb-4">
+                                    <svg class="w-5 h-5 text-accent" fill="currentColor" viewBox="0 0 20 20">
+                                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                                    </svg>
+                                    <svg class="w-5 h-5 text-accent" fill="currentColor" viewBox="0 0 20 20">
+                                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                                    </svg>
+                                    <svg class="w-5 h-5 text-accent" fill="currentColor" viewBox="0 0 20 20">
+                                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                                    </svg>
+                                    <svg class="w-5 h-5 text-accent" fill="currentColor" viewBox="0 0 20 20">
+                                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                                    </svg>
+                                    <svg class="w-5 h-5 text-accent" fill="currentColor" viewBox="0 0 20 20">
+                                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                                    </svg>
+                                </div>
+                                <p class="text-gray-700 mb-4 italic">"Fantastic cafe! Our favourite local! The food menu is great the coffee is always fantastic and the staff are amazing! Always so welcoming we love it here and continue to visit often!"</p>
+                                <p class="font-semibold text-dark">- Mete Famiglia</p>
+                            </div>
+                            <div class="bg-secondary p-8 rounded-lg shadow-lg card-hover fade-in" style="animation-delay: 0.2s;">
+                                <div class="flex mb-4">
+                                    <svg class="w-5 h-5 text-accent" fill="currentColor" viewBox="0 0 20 20">
+                                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                                    </svg>
+                                    <svg class="w-5 h-5 text-accent" fill="currentColor" viewBox="0 0 20 20">
+                                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                                    </svg>
+                                    <svg class="w-5 h-5 text-accent" fill="currentColor" viewBox="0 0 20 20">
+                                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                                    </svg>
+                                    <svg class="w-5 h-5 text-accent" fill="currentColor" viewBox="0 0 20 20">
+                                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                                    </svg>
+                                    <svg class="w-5 h-5 text-accent" fill="currentColor" viewBox="0 0 20 20">
+                                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                                    </svg>
+                                </div>
+                                <p class="text-gray-700 mb-4 italic">"The highlight of my Saturday's morning.. is having a nice coffee and having great moment. Coffee is excellent and baristas are great! Love the vibe asap I'm entering and they greeting with a smile! - cafe is lovely ambiance."</p>
+                                <p class="font-semibold text-dark">- Clau MC</p>
+                            </div>
+                            <div class="bg-secondary p-8 rounded-lg shadow-lg card-hover fade-in" style="animation-delay: 0.4s;">
+                                <div class="flex mb-4">
+                                    <svg class="w-5 h-5 text-accent" fill="currentColor" viewBox="0 0 20 20">
+                                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                                    </svg>
+                                    <svg class="w-5 h-5 text-accent" fill="currentColor" viewBox="0 0 20 20">
+                                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                                    </svg>
+                                    <svg class="w-5 h-5 text-accent" fill="currentColor" viewBox="0 0 20 20">
+                                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                                    </svg>
+                                    <svg class="w-5 h-5 text-accent" fill="currentColor" viewBox="0 0 20 20">
+                                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                                    </svg>
+                                    <svg class="w-5 h-5 text-accent" fill="currentColor" viewBox="0 0 20 20">
+                                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                                    </svg>
+                                </div>
+                                <p class="text-gray-700 mb-4 italic">"Went to this beautiful and clean cafe for a coffee and a scone. The scones were so delicious and fresh, they look homemade🥰 Usually you can only find frozen treats so I find it very refreshing🤩 The server was helpful, kind and friendly. Not only that but the wait for our table and food was not long at all💯 Prices were fair and coffee was a 10/10, the presentation was very neat as well🫶 Thank you for this beautiful experience!"</p>
+                                <p class="font-semibold text-dark">- Olivia Gorgovski</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                
+                <!-- Contact & Location Section -->
+                <section id="contact" class="py-20 bg-secondary">
+                    <div class="container mx-auto px-4">
+                        <div class="text-center mb-12 fade-in">
+                            <h2 class="text-4xl md:text-5xl font-serif font-bold mb-4 text-dark">Visit Us</h2>
+                            <div class="w-24 h-1 bg-accent mx-auto"></div>
+                        </div>
+                        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
+                            <div class="fade-in">
+                                <div class="bg-white p-8 rounded-lg shadow-lg mb-6">
+                                    <h3 class="text-2xl font-serif font-bold mb-4 text-dark flex items-center">
+                                        <svg class="w-6 h-6 mr-2 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                        </svg>
+                                        Address
+                                    </h3>
+                                    <p class="text-gray-700">Shop B10/14 Allandale Entrance<br>Mermaid Waters QLD 4218<br>Australia</p>
+                                </div>
+                                <div class="bg-white p-8 rounded-lg shadow-lg mb-6">
+                                    <h3 class="text-2xl font-serif font-bold mb-4 text-dark flex items-center">
+                                        <svg class="w-6 h-6 mr-2 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                        </svg>
+                                        Operating Hours
+                                    </h3>
+                                    <div class="text-gray-700">
+                                        <p class="mb-2"><span class="font-semibold">Monday - Saturday:</span> 7:00 AM - 4:00 PM</p>
+                                        <p><span class="font-semibold">Sunday:</span> 7:30 AM - 4:00 PM</p>
+                                    </div>
+                                    <div class="mt-4">
+                                        <div class="flex items-center">
+                                            <div id="status-indicator" class="w-3 h-3 rounded-full mr-2"></div>
+                                            <span id="status-text" class="font-semibold"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="bg-white p-8 rounded-lg shadow-lg">
+                                    <h3 class="text-2xl font-serif font-bold mb-4 text-dark flex items-center">
+                                        <svg class="w-6 h-6 mr-2 text-accent" fill="currentColor" viewBox="0 0 24 24">
+                                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                                        </svg>
+                                        Follow Us
+                                    </h3>
+                                    <a href="https://www.instagram.com/twobirdsonestonq" target="_blank" rel="noopener noreferrer" class="text-accent hover:text-accent-dark transition-colors font-semibold">
+                                        @twobirdsonestonq
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="fade-in" style="animation-delay: 0.2s;">
+                                <div class="bg-white p-4 rounded-lg shadow-lg h-full">
+                                    <iframe 
+                                        src="https://maps.google.com/maps?q=Two%20Birds%20One%20Stone%20Q%20Shop%20B10/14%20Allandale%20Entrance%20Mermaid%20Waters%20QLD%204218%20Australia&t=m&z=10&output=embed&iwloc=near" 
+                                        width="100%" 
+                                        height="100%" 
+                                        style="border:0; min-height: 500px;" 
+                                        allowfullscreen="" 
+                                        loading="lazy" 
+                                        referrerpolicy="no-referrer-when-downgrade"
+                                        class="rounded-lg">
+                                    </iframe>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            `;
+            
+            // Load featured dishes
+            loadFeaturedDishes();
+        }
+        
+        function loadFeaturedDishes() {
+            const container = document.getElementById('featured-dishes');
+            if (!container) return;
+            
+            if (!menuData || !menuData['All Day Breakfast']) {
+                container.innerHTML = '<p class="text-center col-span-full text-gray-600">Loading featured dishes...</p>';
+                setTimeout(loadFeaturedDishes, 500);
+                return;
+            }
+            
+            const breakfast = menuData['All Day Breakfast'];
+            const featured = breakfast.slice(0, 4);
+            
+            container.innerHTML = featured.map((item, index) => {
+                const price = typeof item.price === 'string' ? item.price : (item.price?.cup || item.price?.mug || 'Price unavailable');
+                return `
+                    <div class="bg-white rounded-lg shadow-lg p-6 card-hover fade-in" style="animation-delay: ${index * 0.1}s;">
+                        <div class="mb-4">
+                            <h3 class="text-xl font-serif font-bold mb-2 text-dark">${item.name}</h3>
+                            ${item.description ? `<p class="text-gray-600 text-sm leading-relaxed mb-3">${item.description}</p>` : ''}
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-accent font-bold text-lg">${price}</span>
+                            <span class="text-xs text-gray-500 bg-gray-100 px-2 py-1 rounded-full">Breakfast</span>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+        
+        // ==================== MENU PAGE ====================
+        let currentCategory = 'All';
+        let searchQuery = '';
+        
+        function renderMenuPage(container) {
+            container.innerHTML = `
+                <section class="py-20 bg-secondary min-h-screen">
+                    <div class="container mx-auto px-4">
+                        <div class="text-center mb-12 fade-in">
+                            <h1 class="text-4xl md:text-6xl font-serif font-bold mb-4 text-dark">Our Complete Menu</h1>
+                            <div class="w-24 h-1 bg-accent mx-auto mb-6"></div>
+                            <p class="text-lg text-gray-600">Crafted with passion, served with love</p>
+                        </div>
+                        
+                        <!-- Search and Filter -->
+                        <div class="max-w-4xl mx-auto mb-12 fade-in">
+                            <div class="mb-6">
+                                <input 
+                                    type="text" 
+                                    id="menu-search" 
+                                    placeholder="Search menu items..." 
+                                    class="w-full px-6 py-4 rounded-full border-2 border-accent focus:outline-none focus:border-accent-dark transition-colors text-lg"
+                                    oninput="handleSearch(event)"
+                                >
+                            </div>
+                            <div id="category-filters" class="flex flex-wrap justify-center gap-3">
+                                <!-- Will be populated by JavaScript -->
+                            </div>
+                        </div>
+                        
+                        <!-- Menu Items -->
+                        <div id="menu-items" class="max-w-6xl mx-auto">
+                            <!-- Will be populated by JavaScript -->
+                        </div>
+                    </div>
+                </section>
+            `;
+            
+            loadMenu();
+        }
+        
+        function loadMenu() {
+            if (!menuData) {
+                setTimeout(loadMenu, 500);
+                return;
+            }
+            
+            renderCategoryFilters();
+            renderMenuItems();
+        }
+        
+        function renderCategoryFilters() {
+            const container = document.getElementById('category-filters');
+            if (!container || !menuData) return;
+            
+            const categories = ['All', ...Object.keys(menuData)];
+            
+            container.innerHTML = categories.map(category => `
+                <button 
+                    onclick="filterByCategory('${category}')" 
+                    class="px-6 py-2 rounded-full font-semibold transition-all duration-300 ${
+                        currentCategory === category 
+                        ? 'bg-accent text-white shadow-lg transform scale-105' 
+                        : 'bg-white text-dark hover:bg-accent hover:text-white'
+                    }"
+                >
+                    ${category}
+                </button>
+            `).join('');
+        }
+        
+        function filterByCategory(category) {
+            currentCategory = category;
+            renderCategoryFilters();
+            renderMenuItems();
+        }
+        
+        function handleSearch(event) {
+            searchQuery = event.target.value.toLowerCase();
+            renderMenuItems();
+        }
+        
+        function renderMenuItems() {
+            const container = document.getElementById('menu-items');
+            if (!container || !menuData) return;
+            
+            let categoriesToShow = currentCategory === 'All' 
+                ? Object.keys(menuData) 
+                : [currentCategory];
+            
+            let html = '';
+            
+            categoriesToShow.forEach(category => {
+                let items = menuData[category];
+                
+                // Filter by search query
+                if (searchQuery) {
+                    items = items.filter(item => 
+                        item.name.toLowerCase().includes(searchQuery)
+                    );
+                }
+                
+                if (items.length === 0) return;
+                
+                html += `
+                    <div class="mb-12 fade-in">
+                        <h2 class="text-3xl font-serif font-bold mb-6 text-dark border-b-2 border-accent pb-2">${category}</h2>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            ${items.map(item => renderMenuItem(item)).join('')}
+                        </div>
+                    </div>
+                `;
+            });
+            
+            if (!html) {
+                html = `
+                    <div class="text-center py-20">
+                        <svg class="w-24 h-24 mx-auto text-gray-400 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                        </svg>
+                        <p class="text-xl text-gray-600">No items found matching your search.</p>
+                    </div>
+                `;
+            }
+            
+            container.innerHTML = html;
+        }
+        
+        function renderMenuItem(item) {
+            let priceHtml = '';
+            
+            if (typeof item.price === 'string') {
+                priceHtml = `<span class="text-accent font-bold text-lg">${item.price}</span>`;
+            } else if (typeof item.price === 'object') {
+                priceHtml = Object.entries(item.price).map(([size, price]) => 
+                    `<span class="text-accent font-semibold"><span class="text-gray-600 text-sm">${size}:</span> ${price}</span>`
+                ).join(' | ');
+            } else {
+                priceHtml = `<span class="text-gray-500 italic">Price unavailable</span>`;
+            }
+            
+            return `
+                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="text-xl font-serif font-bold text-dark">${item.name}</h3>
+                    </div>
+                    ${item.description ? `<p class="text-gray-600 mb-4">${item.description}</p>` : ''}
+                    <div class="mt-4">
+                        ${priceHtml}
+                    </div>
+                </div>
+            `;
+        }
+
+        // ==================== OPERATING STATUS ====================
+        function updateOperatingStatus() {
+            const statusIndicator = document.getElementById('status-indicator');
+            const statusText = document.getElementById('status-text');
+
+            if (!statusIndicator || !statusText) return;
+
+            const now = new Date();
+            const dayOfWeek = now.toLocaleString('en-US', { weekday: 'long' });
+            const currentTime = now.getHours() * 100 + now.getMinutes();
+
+            const structuredData = JSON.parse(document.getElementById('structured-data').textContent);
+            const openingHours = structuredData.openingHoursSpecification;
+
+            let isOpen = false;
+            let currentSpec = null;
+
+            for (const spec of openingHours) {
+                if (spec.dayOfWeek.includes(dayOfWeek)) {
+                    currentSpec = spec;
+                    break;
+                }
+            }
+
+            if (currentSpec) {
+                const opens = parseInt(currentSpec.opens.replace(':', ''));
+                const closes = parseInt(currentSpec.closes.replace(':', ''));
+                if (currentTime >= opens && currentTime < closes) {
+                    isOpen = true;
+                }
+            }
+
+            if (isOpen) {
+                statusIndicator.classList.remove('bg-red-500');
+                statusIndicator.classList.add('bg-green-500', 'pulse-animation');
+                statusText.textContent = 'Open Now';
+                statusText.classList.remove('text-red-500');
+                statusText.classList.add('text-green-500');
+            } else {
+                statusIndicator.classList.remove('bg-green-500', 'pulse-animation');
+                statusIndicator.classList.add('bg-red-500');
+                statusText.textContent = 'Closed';
+                statusText.classList.remove('text-green-500');
+                statusText.classList.add('text-red-500');
+            }
+        }
+        
+        
+        // ==================== GALLERY PAGE ====================
+        function renderGalleryPage(container) {
+            container.innerHTML = `
+                <section class="py-20 bg-secondary min-h-screen">
+                    <div class="container mx-auto px-4">
+                        <div class="text-center mb-12 fade-in">
+                            <h1 class="text-4xl md:text-6xl font-serif font-bold mb-4 text-dark">A Glimpse of Our Cafe</h1>
+                            <div class="w-24 h-1 bg-accent mx-auto mb-6"></div>
+                            <p class="text-lg text-gray-600">Experience the ambiance and artistry of our culinary creations</p>
+                        </div>
+                        
+                        <div id="gallery-grid" class="masonry-grid">
+                            <!-- Will be populated by JavaScript -->
+                        </div>
+                    </div>
+                </section>
+            `;
+            
+            loadGallery();
+        }
+        
+        function loadGallery() {
+            const container = document.getElementById('gallery-grid');
+            if (!container) return;
+            
+            if (!galleryData || galleryData.length === 0) {
+                container.innerHTML = '<p class="text-center text-gray-600">Loading gallery...</p>';
+                setTimeout(loadGallery, 500);
+                return;
+            }
+            
+            container.innerHTML = galleryData.map((image, index) => `
+                <div class="masonry-item fade-in" style="animation-delay: ${index * 0.05}s;">
+                    <img 
+                        src="${image.url}" 
+                        alt="${image.filename || `Gallery image ${index + 1}`}" 
+                        class="w-full rounded-lg shadow-lg cursor-pointer hover:shadow-2xl transition-shadow duration-300"
+                        loading="lazy"
+                        onclick="openLightbox(${index})"
+                    >
+                </div>
+            `).join('');
+        }
+        
+        // Lightbox Functions
+        function openLightbox(index) {
+            currentLightboxIndex = index;
+            const lightbox = document.getElementById('lightbox');
+            const img = document.getElementById('lightbox-img');
+            
+            if (galleryData && galleryData[index]) {
+                img.src = galleryData[index].url;
+                img.alt = galleryData[index].filename || `Gallery image ${index + 1}`;
+                lightbox.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+        }
+        
+        function closeLightbox() {
+            const lightbox = document.getElementById('lightbox');
+            lightbox.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+        
+        function navigateLightbox(direction) {
+            if (!galleryData) return;
+            
+            currentLightboxIndex += direction;
+            
+            if (currentLightboxIndex < 0) {
+                currentLightboxIndex = galleryData.length - 1;
+            } else if (currentLightboxIndex >= galleryData.length) {
+                currentLightboxIndex = 0;
+            }
+            
+            const img = document.getElementById('lightbox-img');
+            img.src = galleryData[currentLightboxIndex].url;
+            img.alt = galleryData[currentLightboxIndex].filename || `Gallery image ${currentLightboxIndex + 1}`;
+        }
+    </script>
+</body>
+</html>

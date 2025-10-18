@@ -240,6 +240,133 @@
         .price-badge {
             background: linear-gradient(135deg, #D2B48C 0%, #856868 100%);
         }
+
+        /* Enhanced filter sections */
+        .filter-section-card {
+            background: white;
+            border-radius: 1rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            border: 1px solid #f3f4f6;
+        }
+
+        .filter-section-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .filter-section-header svg {
+            width: 1.25rem;
+            height: 1.25rem;
+            margin-right: 0.5rem;
+        }
+
+        .filter-section-title {
+            font-size: 0.875rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: #374151;
+        }
+
+        /* Advanced filters section */
+        .advanced-filters {
+            background: #f9fafb;
+            border-radius: 0.75rem;
+            padding: 1rem;
+        }
+
+        .advanced-filters .flex {
+            gap: 1rem;
+        }
+
+        /* Enhanced active filters */
+        .active-filters-enhanced {
+            background: rgba(210, 180, 140, 0.05);
+            border: 1px solid rgba(210, 180, 140, 0.2);
+            border-radius: 0.5rem;
+            padding: 1rem;
+        }
+
+        .active-filters-title {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.75rem;
+        }
+
+        .active-filters-title svg {
+            width: 1rem;
+            height: 1rem;
+            margin-right: 0.5rem;
+        }
+
+        /* Search bar enhancements */
+        .search-enhanced {
+            position: relative;
+        }
+
+        .search-enhanced svg {
+            position: absolute;
+            left: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            pointer-events: none;
+        }
+
+        .search-enhanced input {
+            padding-left: 3rem;
+            padding-right: 1.5rem;
+            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+        }
+
+        /* Filter button improvements */
+        .filter-btn-enhanced {
+            transition: all 0.2s ease-in-out;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            padding: 0.5rem 0.75rem;
+        }
+
+        .filter-btn-enhanced:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .filter-btn-enhanced.active {
+            background: linear-gradient(135deg, #d4a574 0%, #856868 100%);
+            color: white;
+            box-shadow: 0 4px 12px rgba(210, 180, 140, 0.3);
+        }
+
+        /* Responsive improvements */
+        @media (max-width: 1024px) {
+            .filter-section-card .lg\:flex-row {
+                flex-direction: column;
+            }
+
+            .filter-section-card .lg\:border-l {
+                border-left: none;
+                border-top: 1px solid #e5e7eb;
+                padding-left: 0;
+                padding-top: 1.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .advanced-filters .sm\:flex-row {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .advanced-filters .sm\:justify-between {
+                justify-content: center;
+            }
+
+            .filter-section-card {
+                padding: 1rem;
+            }
+        }
     </style>
 </head>
 <body class="bg-secondary text-dark">
@@ -298,101 +425,139 @@
                 </div>
 
                 <!-- Search and Filters -->
-                <div class="max-w-4xl mx-auto mb-12 fade-in">
+                <div class="max-w-6xl mx-auto mb-12 fade-in">
                     <!-- Search Bar -->
-                    <div class="relative mb-6">
-                        <input
-                            type="text"
-                            id="menu-search"
-                            placeholder="Search menu items..."
-                            class="w-full px-6 py-4 rounded-full border-2 border-accent focus:outline-none focus:border-accent-dark transition-colors text-lg"
-                            oninput="handleSearch(event)"
-                            autocomplete="off"
-                        >
+                    <div class="relative mb-8">
+                        <div class="relative">
+                            <svg class="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                            </svg>
+                            <input
+                                type="text"
+                                id="menu-search"
+                                placeholder="Search menu items..."
+                                class="w-full pl-12 pr-6 py-4 rounded-full border-2 border-accent focus:outline-none focus:border-accent-dark transition-colors text-lg shadow-sm"
+                                oninput="handleSearch(event)"
+                                autocomplete="off"
+                            >
+                        </div>
                         <!-- Autocomplete Dropdown -->
-                        <div id="autocomplete-dropdown" class="absolute top-full left-0 right-0 mt-1 bg-white border border-gray-200 rounded-lg shadow-lg hidden z-10">
+                        <div id="autocomplete-dropdown" class="absolute top-full left-0 right-0 mt-2 bg-white border border-gray-200 rounded-lg shadow-lg hidden z-10">
                             <div id="autocomplete-suggestions" class="max-h-60 overflow-y-auto">
                                 <!-- Suggestions will be populated here -->
                             </div>
                         </div>
                     </div>
 
-                    <!-- Category Filters -->
-                    <div id="category-filters" class="flex flex-wrap justify-center gap-3 mb-6">
-                        <!-- Will be populated by JavaScript -->
+                    <!-- Main Filter Groups -->
+                    <div class="bg-white rounded-2xl shadow-lg border border-gray-100 p-6 mb-6">
+                        <!-- Primary Filters Row -->
+                        <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
+                            <!-- Category Filters Section -->
+                            <div class="flex-1">
+                                <div class="flex items-center mb-4">
+                                    <svg class="w-5 h-5 text-accent mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+                                    </svg>
+                                    <h3 class="text-sm font-semibold text-gray-700 uppercase tracking-wide">Categories</h3>
+                                </div>
+                                <div id="category-filters" class="flex flex-wrap gap-2">
+                                    <!-- Will be populated by JavaScript -->
+                                </div>
+                            </div>
+
+                            <!-- Price Filters Section -->
+                            <div class="flex-1 lg:border-l lg:border-gray-200 lg:pl-6">
+                                <div class="flex items-center mb-4">
+                                    <svg class="w-5 h-5 text-accent mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"></path>
+                                    </svg>
+                                    <h3 class="text-sm font-semibold text-gray-700 uppercase tracking-wide">Price Range</h3>
+                                </div>
+                                <div class="flex flex-wrap gap-2">
+                                    <button onclick="filterByPrice('all', event)" class="filter-btn px-3 py-2 rounded-full bg-gray-100 text-gray-700 hover:bg-accent hover:text-white text-sm">
+                                        All Prices
+                                    </button>
+                                    <button onclick="filterByPrice('under-5', event)" class="filter-btn px-3 py-2 rounded-full bg-gray-100 text-gray-700 hover:bg-accent hover:text-white text-sm">
+                                        Under $5
+                                    </button>
+                                    <button onclick="filterByPrice('5-10', event)" class="filter-btn px-3 py-2 rounded-full bg-gray-100 text-gray-700 hover:bg-accent hover:text-white text-sm">
+                                        $5 - $10
+                                    </button>
+                                    <button onclick="filterByPrice('10-15', event)" class="filter-btn px-3 py-2 rounded-full bg-gray-100 text-gray-700 hover:bg-accent hover:text-white text-sm">
+                                        $10 - $15
+                                    </button>
+                                    <button onclick="filterByPrice('15-20', event)" class="filter-btn px-3 py-2 rounded-full bg-gray-100 text-gray-700 hover:bg-accent hover:text-white text-sm">
+                                        $15 - $20
+                                    </button>
+                                    <button onclick="filterByPrice('20-25', event)" class="filter-btn px-3 py-2 rounded-full bg-gray-100 text-gray-700 hover:bg-accent hover:text-white text-sm">
+                                        $20 - $25
+                                    </button>
+                                    <button onclick="filterByPrice('over-25', event)" class="filter-btn px-3 py-2 rounded-full bg-gray-100 text-gray-700 hover:bg-accent hover:text-white text-sm">
+                                        Over $25
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Sub-Category Filters (when applicable) -->
+                        <div id="sub-category-filters" class="mt-6 pt-6 border-t border-gray-200 hidden">
+                            <div class="flex items-center mb-4">
+                                <svg class="w-5 h-5 text-accent mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"></path>
+                                </svg>
+                                <h3 class="text-sm font-semibold text-gray-700 uppercase tracking-wide">Sub-Categories</h3>
+                            </div>
+                            <div class="flex flex-wrap gap-2">
+                                <!-- Will be populated by JavaScript -->
+                            </div>
+                        </div>
                     </div>
 
-                    <!-- Sub-Category Filters -->
-                    <div id="sub-category-filters" class="flex flex-wrap justify-center gap-3 mb-6 hidden">
-                        <!-- Will be populated by JavaScript for categories with sub-categories -->
-                    </div>
+                    <!-- Advanced Filters Section -->
+                    <div class="bg-gray-50 rounded-xl p-4 mb-6 overflow-visible">
+                        <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+                            <!-- Sort Options -->
+                            <div class="flex items-center">
+                                <svg class="w-4 h-4 text-gray-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16V4m0 0L3 8m4-4l4 4m6 0v12m0 0l4-4m-4 4l-4-4"></path>
+                                </svg>
+                                <span class="text-sm font-medium text-gray-600 mr-3">Sort by:</span>
+                                <div class="relative inline-block">
+                                    <button id="sort-dropdown-btn" onclick="toggleSortDropdown()" class="flex items-center justify-between min-w-48 px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:border-accent transition-colors bg-white text-gray-700 hover:bg-gray-50">
+                                        <span id="sort-selected-text">Default</span>
+                                        <svg id="sort-chevron" class="w-4 h-4 ml-2 transition-transform duration-200 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
 
-                    <!-- Price Filter -->
-                    <div class="flex flex-wrap justify-center gap-3 mb-6">
-                        <button onclick="filterByPrice('all', event)" class="filter-btn px-4 py-2 rounded-full bg-white text-dark hover:bg-accent hover:text-white">
-                            All Prices
-                        </button>
-                        <button onclick="filterByPrice('under-5', event)" class="filter-btn px-4 py-2 rounded-full bg-white text-dark hover:bg-accent hover:text-white">
-                            Under $5
-                        </button>
-                        <button onclick="filterByPrice('5-10', event)" class="filter-btn px-4 py-2 rounded-full bg-white text-dark hover:bg-accent hover:text-white">
-                            $5 - $10
-                        </button>
-                        <button onclick="filterByPrice('10-15', event)" class="filter-btn px-4 py-2 rounded-full bg-white text-dark hover:bg-accent hover:text-white">
-                            $10 - $15
-                        </button>
-                        <button onclick="filterByPrice('15-20', event)" class="filter-btn px-4 py-2 rounded-full bg-white text-dark hover:bg-accent hover:text-white">
-                            $15 - $20
-                        </button>
-                        <button onclick="filterByPrice('20-25', event)" class="filter-btn px-4 py-2 rounded-full bg-white text-dark hover:bg-accent hover:text-white">
-                            $20 - $25
-                        </button>
-                        <button onclick="filterByPrice('over-25', event)" class="filter-btn px-4 py-2 rounded-full bg-white text-dark hover:bg-accent hover:text-white">
-                            Over $25
-                        </button>
+                            <!-- Quick Actions -->
+                            <div class="flex items-center gap-3">
+                                <button onclick="clearAllFilters()" class="text-sm text-accent hover:text-accent-dark transition-colors underline">
+                                    Clear All Filters
+                                </button>
+                            </div>
+                        </div>
                     </div>
-                    
-
 
                     <!-- Active Filters Bar -->
-                    <div id="active-filters" class="mt-6 mb-4 hidden">
-                        <div class="flex items-center justify-between mb-3">
-                            <h3 class="text-sm font-semibold text-gray-600">Active Filters:</h3>
-                            <button onclick="clearAllFilters()" class="text-xs text-accent hover:text-accent-dark underline">
-                                Clear All
-                            </button>
-                        </div>
-                        <div id="filter-chips" class="flex flex-wrap gap-2">
-                            <!-- Filter chips will be populated here -->
-                        </div>
-                    </div>
-
-                    <!-- Sorting Options -->
-                    <div class="flex justify-center items-center gap-3 mb-6">
-                        <span class="text-sm font-medium text-gray-600">Sort by:</span>
-                        <div class="relative inline-block">
-                            <button id="sort-dropdown-btn" onclick="toggleSortDropdown()" class="flex items-center justify-between w-48 px-4 py-2 rounded-full border-2 border-accent focus:outline-none focus:border-accent-dark transition-colors bg-white text-dark hover:bg-gray-50">
-                                <span id="sort-selected-text">Default</span>
-                                <svg id="sort-chevron" class="w-4 h-4 ml-2 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="transform: rotate(180deg)">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                                </svg>
-                            </button>
-                            <div id="sort-dropdown" class="hidden absolute bottom-full left-0 mb-1 w-48 bg-white border-2 border-accent rounded-lg shadow-lg" style="z-index: 1000;">
-                                <button onclick="selectSortOption('default')" class="w-full text-left px-4 py-2 hover:bg-accent hover:bg-opacity-10 transition-colors border-b border-gray-100 last:border-b-0">
-                                    Default
+                    <div id="active-filters" class="mb-6 hidden">
+                        <div class="bg-accent bg-opacity-5 border border-accent border-opacity-20 rounded-lg p-4">
+                            <div class="flex items-center justify-between mb-3">
+                                <div class="flex items-center">
+                                    <svg class="w-4 h-4 text-accent mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z"></path>
+                                    </svg>
+                                    <h3 class="text-sm font-semibold text-accent">Active Filters:</h3>
+                                </div>
+                                <button onclick="clearAllFilters()" class="text-xs text-accent hover:text-accent-dark transition-colors">
+                                    Clear All
                                 </button>
-                                <button onclick="selectSortOption('price-low-high')" class="w-full text-left px-4 py-2 hover:bg-accent hover:bg-opacity-10 transition-colors border-b border-gray-100 last:border-b-0">
-                                    Price: Low to High
-                                </button>
-                                <button onclick="selectSortOption('price-high-low')" class="w-full text-left px-4 py-2 hover:bg-accent hover:bg-opacity-10 transition-colors border-b border-gray-100 last:border-b-0">
-                                    Price: High to Low
-                                </button>
-                                <button onclick="selectSortOption('name-a-z')" class="w-full text-left px-4 py-2 hover:bg-accent hover:bg-opacity-10 transition-colors border-b border-gray-100 last:border-b-0">
-                                    Name: A to Z
-                                </button>
-                                <button onclick="selectSortOption('name-z-a')" class="w-full text-left px-4 py-2 hover:bg-accent hover:bg-opacity-10 transition-colors border-b border-gray-100 last:border-b-0">
-                                    Name: Z to A
-                                </button>
+                            </div>
+                            <div id="filter-chips" class="flex flex-wrap gap-2">
+                                <!-- Filter chips will be populated here -->
                             </div>
                         </div>
                     </div>
@@ -419,10 +584,10 @@
                 <div>
                     <h3 class="text-lg font-serif font-bold mb-4 text-accent">Quick Links</h3>
                     <ul class="space-y-2">
-                        <li><a href="./" class="hover:text-accent transition-colors">Home</a></li>
+                        <li><a href="/" class="hover:text-accent transition-colors">Home</a></li>
                         <li><a href="menu.html" class="hover:text-accent transition-colors">Menu</a></li>
                         <li><a href="gallery.html" class="hover:text-accent transition-colors">Gallery</a></li>
-                        <li><a href="./#contact" class="hover:text-accent transition-colors">Contact</a></li>
+                        <li><a href="#contact" class="hover:text-accent transition-colors">Contact</a></li>
                     </ul>
                 </div>
                 <!-- Contact Us -->
@@ -447,6 +612,25 @@
             </div>
         </div>
     </footer>
+
+    <!-- Sort Dropdown Menu (Portaled) -->
+    <div id="sort-dropdown" class="hidden absolute w-48 bg-white border border-gray-200 rounded-lg shadow-lg z-50">
+        <button onclick="selectSortOption('default')" class="w-full text-left px-4 py-2 hover:bg-gray-50 transition-colors text-sm">
+            Default
+        </button>
+        <button onclick="selectSortOption('price-low-high')" class="w-full text-left px-4 py-2 hover:bg-gray-50 transition-colors text-sm">
+            Price: Low to High
+        </button>
+        <button onclick="selectSortOption('price-high-low')" class="w-full text-left px-4 py-2 hover:bg-gray-50 transition-colors text-sm">
+            Price: High to Low
+        </button>
+        <button onclick="selectSortOption('name-a-z')" class="w-full text-left px-4 py-2 hover:bg-gray-50 transition-colors text-sm">
+            Name: A to Z
+        </button>
+        <button onclick="selectSortOption('name-z-a')" class="w-full text-left px-4 py-2 hover:bg-gray-50 transition-colors text-sm">
+            Name: Z to A
+        </button>
+    </div>
 
     <script>
         // Global State
@@ -637,10 +821,10 @@
             container.innerHTML = categories.map(category => `
                 <button
                     onclick="filterByCategory('${category}')"
-                    class="filter-btn px-6 py-2 rounded-full font-semibold transition-all duration-300 ${
+                    class="filter-btn-enhanced ${
                         currentCategory === category
-                        ? 'bg-accent text-white shadow-lg transform scale-105 active'
-                        : 'bg-white text-dark hover:bg-accent hover:text-white'
+                        ? 'bg-accent text-white active'
+                        : 'bg-gray-100 text-gray-700 hover:bg-accent hover:text-white'
                     }"
                 >
                     ${category}
@@ -676,23 +860,23 @@
 
             // Get sub-categories
             const subCategories = Object.keys(categoryData);
-            
+
             if (subCategories.length === 0) {
                 container.classList.add('hidden');
                 return;
             }
 
             container.classList.remove('hidden');
-            
+
             const subCategoriesWithAll = ['All', ...subCategories];
-            
+
             container.innerHTML = subCategoriesWithAll.map(subCat => `
                 <button
                     onclick="filterBySubCategory('${subCat}')"
-                    class="filter-btn px-4 py-2 rounded-full font-medium transition-all duration-300 text-sm ${
+                    class="filter-btn-enhanced ${
                         currentSubCategory === subCat
                         ? 'bg-accent bg-opacity-20 text-accent border-2 border-accent'
-                        : 'bg-white text-dark hover:bg-accent hover:text-white border-2 border-transparent'
+                        : 'bg-gray-100 text-gray-700 hover:bg-accent hover:text-white border-2 border-transparent'
                     }"
                 >
                     ${subCat}
@@ -849,9 +1033,15 @@
         // Custom Dropdown Functions
         function toggleSortDropdown() {
             const dropdown = document.getElementById('sort-dropdown');
+            const button = document.getElementById('sort-dropdown-btn');
             const chevron = document.getElementById('sort-chevron');
-            
+
             if (dropdown.classList.contains('hidden')) {
+                const rect = button.getBoundingClientRect();
+                dropdown.style.left = `${rect.left}px`;
+                dropdown.style.top = `${rect.bottom + window.scrollY}px`;
+                dropdown.style.width = `${rect.width}px`;
+
                 dropdown.classList.remove('hidden');
                 chevron.style.transform = 'rotate(180deg)';
             } else {
@@ -863,7 +1053,6 @@
         function selectSortOption(value) {
             currentSort = value;
             
-            // Update the selected text
             const sortLabels = {
                 'default': 'Default',
                 'price-low-high': 'Price: Low to High',
@@ -876,9 +1065,8 @@
             
             // Close dropdown
             document.getElementById('sort-dropdown').classList.add('hidden');
-            document.getElementById('sort-chevron').style.transform = 'rotate(180deg)';
+            document.getElementById('sort-chevron').style.transform = 'rotate(0deg)';
             
-            // Re-render menu items
             renderMenuItems();
         }
 
@@ -887,11 +1075,11 @@
             const dropdown = document.getElementById('sort-dropdown');
             const button = document.getElementById('sort-dropdown-btn');
             
-            if (!dropdown.classList.contains('hidden') && 
-                !button.contains(event.target) && 
+            if (dropdown && !dropdown.classList.contains('hidden') && 
+                button && !button.contains(event.target) && 
                 !dropdown.contains(event.target)) {
                 dropdown.classList.add('hidden');
-                document.getElementById('sort-chevron').style.transform = 'rotate(180deg)';
+                document.getElementById('sort-chevron').style.transform = 'rotate(0deg)';
             }
         });
 
@@ -1098,7 +1286,7 @@
             currentSort = 'default';
 
             document.getElementById('menu-search').value = '';
-            document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+            document.querySelectorAll('.filter-btn-enhanced').forEach(btn => btn.classList.remove('active'));
             document.querySelectorAll('[onclick^="filterByPrice"]').forEach(btn => btn.classList.remove('active'));
             document.querySelector('[onclick="filterByPrice(\'all\', event)"]').classList.add('active');
 
@@ -1221,5 +1409,4 @@
         }
     </script>
 </body>
-
 </html>

@@ -190,7 +190,7 @@
                 <a href="./" class="nav-link text-dark hover:text-accent transition-colors font-medium">Home</a>
                 <a href="menu.html" class="nav-link text-dark hover:text-accent transition-colors font-medium">Menu</a>
                 <a href="gallery.html" class="nav-link text-dark hover:text-accent transition-colors font-medium active">Gallery</a>
-                <a href="./#contact" class="nav-link text-dark hover:text-accent transition-colors font-medium">Contact</a>
+                <a href="./#contact" onclick="scrollToContact(event)" class="nav-link text-dark hover:text-accent transition-colors font-medium">Contact</a>
             </div>
             <button id="mobile-menu-btn" class="md:hidden text-dark focus:outline-none" onclick="toggleMobileMenu()">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -209,10 +209,10 @@
                 </svg>
             </button>
             <div class="flex flex-col space-y-6">
-                <a href="./" class="text-dark hover:text-accent transition-colors font-medium text-lg">Home</a>
+                <a href="./" onclick="navigate(event, './')" class="text-dark hover:text-accent transition-colors font-medium text-lg">Home</a>
                 <a href="menu.html" onclick="navigate(event, 'menu.html')" class="text-dark hover:text-accent transition-colors font-medium text-lg">Menu</a>
                 <a href="gallery.html" onclick="navigate(event, 'gallery.html')" class="text-dark hover:text-accent transition-colors font-medium text-lg active">Gallery</a>
-                <a href="./#contact" class="text-dark hover:text-accent transition-colors font-medium text-lg">Contact</a>
+                <a href="./#contact" onclick="scrollToContact(event, './#contact')" class="text-dark hover:text-accent transition-colors font-medium text-lg">Contact</a>
             </div>
         </div>
     </div>
@@ -305,13 +305,13 @@
             window.location.href = path;
         }
 
-        // Scroll to contact (for footer link)
-        function scrollToContact(event) {
-            if (event) {
-                event.preventDefault();
-            }
-            window.location.href = '/';
-        }
+        // // Scroll to contact (for footer link)
+        // function scrollToContact(event) {
+        //     if (event) {
+        //         event.preventDefault();
+        //     }
+        //     window.location.href = '/';
+        // }
 
     document.addEventListener('DOMContentLoaded', () => {
         const galleryGrid = document.getElementById('gallery-grid');
@@ -500,9 +500,4 @@
     });
     </script>
 </body>
-
 </html>
-
-
-
-
